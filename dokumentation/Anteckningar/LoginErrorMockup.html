@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="sv">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+		<title>LoginMockup</title>
+
+		<link rel="stylesheet" href="../../applikation/css/normalize.css">
+		<link rel="stylesheet" href="../../applikation/css/foundation.css" />
+		<link rel="stylesheet" href="../../applikation/css/site.css" />
+
+		<script src="../../applikation/js/vendor/modernizr.js"></script>
+	</head>
+	<body>
+		<div id="container">
+
+			<header id="app-header" class="row">
+				<div class="small-5 medium-3 large-2 small-centered columns">
+					<img src="../../applikation/img/logo.png" />
+				</div>
+				<div class="small-8 medium-5 large-4 small-centered columns">
+					<h1 class="text-centered"><img src="../../applikation/img/header.png" /></h1>
+				</div>
+			</header>
+
+			<div id="content">
+				<div class="row">
+					<form class="small-10 medium-6 large-4 small-centered columns">
+
+						<div data-alert class="alert-box alert radius">
+							<ul class="error-list">
+								<li>
+									Användarnamn saknas
+								</li>
+								<li>
+									Lösenord saknas
+								</li>
+							</ul>
+							<a href="#" aria-label="Stäng" class="close">&times;</a>
+						</div>
+
+						<input class="error radius" name="username" aria-label="Användarnamn" type="text" placeholder="Användarnamn" autofocus="autofocus" />
+						<input class="error radius" name="password" aria-label="Lösenord" type="password" placeholder="Lösenord" />
+						<input class="button tiny radius expand" type="submit" value="Logga in" />
+					</form>
+				</div>
+			</div>
+
+			<footer>
+				<p class="text-centered">
+					Site by Svante Arvedson
+				</p>
+			</footer>
+
+		</div>
+
+		<script src="../../applikation/js/vendor/jquery.js"></script>
+		<script src="../../applikation/js/foundation.min.js"></script>
+		<script src="../../applikation/js/foundation/foundation.alert.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
+</html>
