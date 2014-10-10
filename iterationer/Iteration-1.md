@@ -15,12 +15,12 @@ en kurs implementeras.
     <tr>
         <td><a href="../Documentation/Krav/DF1-Logga-in.md">DF1 - Logga in</a>, Serverkod</td>
         <td>4</td>
-        <td>0</td>
+        <td>11</td>
     </tr>
     <tr>
         <td><a href="../Documentation/Krav/DF1-Logga-in.md">DF1 - Logga in</a>, CSS</td>
         <td>2</td>
-        <td>3</td>
+        <td>5</td>
     </tr>
     <tr>
         <td><a href="../Documentation/Krav/DF1-Logga-in.md">DF1 - Logga in</a>, JavaScript</td>
@@ -54,7 +54,6 @@ en kurs implementeras.
     <tr>
         <td><b>Summa</b></td>
         <td><b>20</b></td>
-        <td><b>3</b></td>
+        <td><b>16</b></td>
     </tr>
-</tr>
 </table>

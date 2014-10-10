@@ -2,27 +2,28 @@
 
 namespace controller;
 
-require_once dirname(__FILE__) . '/../view/Route.php';
-require_once dirname(__FILE__) . '/../view/RouteHandler.php';
+require_once dirname(__FILE__) . '/../view/Page.php';
 require_once dirname(__FILE__) . '/../view/Action.php';
+require_once dirname(__FILE__) . '/../controller/AuthenticationHandler.php';
 
 class Program {
-    
-    private $routeHandler;
-    
-    public function __construct() {
-        $this->routeHandler = new \view\RouteHandler();
-    }
-    
     public function run() {
-        $route = $this->routeHandler->getRoute();
-        
-        // Ignore warnings beacuse we check for null value
-        switch ($route->getAction()) {
-            case '':
-                echo "Visa startsidan";
+        $page = new \view\Page();
+
+        switch ($page->getAction()) {
+            case '' :
+                $handler = new AuthenticationHandler();
+                $handler -> createFrontPage();
                 break;
-            default:
+            case \view\Action::LOGIN :
+                $handler = new AuthenticationHandler();
+                $handler -> doLogin();
+                break;
+            case \view\Action::LOGOUT :
+                $handler = new AuthenticationHandler();
+                $handler -> doLogout();
+                break;
+            default :
                 echo "Fel URL, ingen action matchas";
         }
     }

@@ -1,45 +1,44 @@
-html, body {
+body {
 	height: 100%;
-	margin: 0;
 	padding: 0;
 	background-color: #FAFAFA;
 }
 
-#container {
+.container {
+	padding: 2em 0;
+}
+
+header {
+	padding: 0 0 2em;
+}
+
+.nav {
 	min-height: 100%;
-	position: relative;
 }
 
-#app-header {
-	padding: 1em 0 2em;
+#toggle {
+	position: fixed;
+	top: 0;
+	right: 0;
+	padding: 0.5em 0.5em 0 0;
+	width: 20%;
+	z-index: 100;
 }
 
-#content {
-	padding-bottom: 2em;
+.panel {
+	max-width: 94%; 
+	margin: 0 3%;
 }
 
-footer {
-	position: absolute;
-	bottom: 0;
-	height: 2em;
-	width: 100%;
+.presentation-list {
+	margin: 0 0 1em;
+	list-style: none;
+	list-style-position: outside;
 }
 
-footer p {
-	line-height: 2;
+p.error-message {
 	margin: 0;
-	color: #6D97BF;
-	font-size: 0.75 rem;
-	font-style: italic;
-	font-family: serif;
-}
-
-.error-list {
-	margin: 0 0.3em;
-	list-style: square;
-	list-style-position: inside;
-	font-size: 0.75 rem;
-	font-style: italic;
+	font-size: 0.75rem;
 }
 
 .text-centered {
