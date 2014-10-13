@@ -28,7 +28,13 @@ class AuthenticationHandler {
                 $user = \model\UserFactory::recreateUser($inputs[\view\FrontPage::$nameUsername], $inputs[\view\FrontPage::$namePassword]);
                 $this -> session -> loginUser($user);
             } catch (\Exception $e) {
-                $this -> frontPage -> createErrorMessage($e->getCode());
+                if ($e->getCode() != -1) {
+                    $this -> frontPage -> createErrorMessage($e->getCode());
+                } else {
+                    //TODO: show a custom error page here
+                    var_dump($e);
+                    die();
+                }
             }
         }
         $this -> navigation -> redirectToFrontPage();

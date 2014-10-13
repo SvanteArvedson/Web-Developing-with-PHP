@@ -3,6 +3,7 @@
 namespace view;
 
 require_once dirname(__FILE__) . '/Page.php';
+require_once dirname(__FILE__) . '/../model/Privileges.php';
 
 class FrontPage extends Page {
 
@@ -37,7 +38,18 @@ class FrontPage extends Page {
 
     public function echoFrontPage($user) {
         $title = "AppQuiz - Startsida";
-        include (dirname(__FILE__) . '/templates/frontPage.php');
+        
+        switch ($user->getPrivileges()) {
+            case \model\Privileges::STUDENT :
+                include (dirname(__FILE__) . '/templates/frontPageStudent.php');
+                break;
+            case \model\Privileges::TEACHER :
+                include (dirname(__FILE__) . '/templates/frontPageTeacher.php');
+                break;
+            case \model\Privileges::ADMIN :
+                include (dirname(__FILE__) . '/templates/frontPageAdmin.php');
+                break;
+        }
     }
 
 }

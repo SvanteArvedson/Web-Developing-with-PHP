@@ -19,18 +19,20 @@ class UserFactory {
 
         try {
             $user = $repo -> getUserByUsername($username);
-            if ($user === null || $user -> getPassword() !== $password) {
+            
+            if ($user === null || $user -> getPassword() !== crypt($password, $user -> getSalt())) {
                 throw new \Exception("No user exists with username $username and password $password", ErrorCode::NO_MATCHING_USER);
             }
+            
+            return $user;
+
         } catch(\Exception $e) {
             throw $e;
         }
-
-        return new User($username, $password);
     }
 
-    public static function createUser($username, $password) {
-        return new User($username, $password);
+    public static function createUser($id, $username, $password, $salt, $privileges) {
+        return new User($id, $username, $password, $salt, $privileges);
     }
 
 }

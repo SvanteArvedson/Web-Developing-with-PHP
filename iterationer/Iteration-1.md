@@ -15,7 +15,7 @@ en kurs implementeras.
     <tr>
         <td><a href="../Documentation/Krav/DF1-Logga-in.md">DF1 - Logga in</a>, Serverkod</td>
         <td>4</td>
-        <td>11</td>
+        <td>12</td>
     </tr>
     <tr>
         <td><a href="../Documentation/Krav/DF1-Logga-in.md">DF1 - Logga in</a>, CSS</td>
@@ -30,7 +30,7 @@ en kurs implementeras.
     <tr>
         <td><a href="../Documentation/Krav/DF1-Logga-in.md">DF1 - Logga in</a>, Databas</td>
         <td>4</td>
-        <td></td>
+        <td>2</td>
     </tr>
         <td><a href="../Documentation/Krav/AF2-Registrera-student-i-kurs.md">AF2 - Registrera student i kurs</a>, Serverkod</td>
         <td>4</td>
@@ -54,6 +54,6 @@ en kurs implementeras.
     <tr>
         <td><b>Summa</b></td>
         <td><b>20</b></td>
-        <td><b>16</b></td>
+        <td><b>19</b></td>
     </tr>
 </table>
