@@ -2,6 +2,9 @@
 
 namespace view;
 
+/**
+ * Handles redirects
+ */
 class Navigation {
     
     public function redirectToFrontPage() {

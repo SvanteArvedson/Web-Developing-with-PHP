@@ -5,6 +5,10 @@ namespace model;
 require_once dirname(__FILE__) . '/Repository.php';
 require_once dirname(__FILE__) . '/UserFactory.php';
 
+/**
+ * Repository class to table "user" in database
+ * @author Svante Arvedson
+ */
 class UserRepository extends Repository {
 
     private static $id = 'id';

@@ -4,6 +4,10 @@ namespace model;
 
 require_once dirname(__FILE__).'/../settings/DatabaseSettings.php';
 
+/**
+ * Base class for repository-classes
+ * @author Svante Arvedson
+ */
 class Repository {
     
     protected $connection;

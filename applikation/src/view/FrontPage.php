@@ -5,8 +5,14 @@ namespace view;
 require_once dirname(__FILE__) . '/Page.php';
 require_once dirname(__FILE__) . '/../model/Privileges.php';
 
+/**
+ * Front page shows log in form or the start page for a logged in user
+ * @author Svante Arvedson
+ */
 class FrontPage extends Page {
 
+    private static $keyProvidedUsername = 'providedUsername';
+    public static $nameForm = 'loginform';
     public static $nameUsername = 'username';
     public static $namePassword = 'password';
 
@@ -33,6 +39,7 @@ class FrontPage extends Page {
     public function echoLoginPage() {
         $errorMessage = $this -> cookie -> cookieIsset(self::$keyErrorMessage) ? $this -> cookie -> loadOnce(self::$keyErrorMessage) : null;
         $title = "AppQuiz - Logga in";
+        $providedUsername =  $this->cookie->cookieIsset(self::$keyProvidedUsername) ? $this->cookie->loadOnce(self::$keyProvidedUsername) : "";
         include (dirname(__FILE__) . '/templates/loginForm.php');
     }
 
@@ -52,4 +59,7 @@ class FrontPage extends Page {
         }
     }
 
+    public function saveProvidedUsername() {
+        $this->cookie->save(self::$keyProvidedUsername, $_POST[self::$nameUsername]);
+    }
 }

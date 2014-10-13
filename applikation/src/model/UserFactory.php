@@ -5,6 +5,10 @@ namespace model;
 require_once dirname(__FILE__) . '/UserRepository.php';
 require_once dirname(__FILE__) . '/ErrorCode.php';
 
+/**
+ * Create User-objects
+ * @author Svante Arvedson
+ */
 class UserFactory {
 
     public static function recreateUser($username, $password) {

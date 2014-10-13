@@ -2,77 +2,82 @@
 <table>
     <tr>
         <th>Datum</th>
-        <th>Händelse</th>
-        <th>Författare</th>
+        <th>Hï¿½ndelse</th>
+        <th>Fï¿½rfattare</th>
     </tr>
     <tr>
         <td>18/9-2014</td>
         <td>Skapades</td>
         <td>Svante Arvedson</td>
     </tr>
+    <tr>
+        <td>14/10-2014</td>
+        <td>Ã„ndrat CSS-ramverk fron Bootstrap till Foundation</td>
+        <td>Svante Arvedson</td>
+    </tr>
 </table>
 
 ##Problem/Bakgrundsbeskrivning
-Det är svårt för studenter på webbprogrammerarutbildningen att på ett snabbt 
-och enkelt sätt under kursernas gång veta om de har lärt sig de viktiga 
-teoretiska delarna av kursinnehållet. I nuläget är det egentligen först i 
-slutet av kursen som studenten har en möjlighet att veta hur väl man har lärt 
-sig de teoretiska delarna och hur väl man har läst exempelvis kurslitteraturen.    
-Den här applikationen skall underlätta den löpande kollen att studenten har 
-lärt sig rätt saker genom att låta hen göra quiz på de enskilda kursdelarna. 
-Quizen skapas av kurslärarna och handlar om de för kursen relevanta teoretiska 
+Det ï¿½r svï¿½rt fï¿½r studenter pï¿½ webbprogrammerarutbildningen att pï¿½ ett snabbt 
+och enkelt sï¿½tt under kursernas gï¿½ng veta om de har lï¿½rt sig de viktiga 
+teoretiska delarna av kursinnehï¿½llet. I nulï¿½get ï¿½r det egentligen fï¿½rst i 
+slutet av kursen som studenten har en mï¿½jlighet att veta hur vï¿½l man har lï¿½rt 
+sig de teoretiska delarna och hur vï¿½l man har lï¿½st exempelvis kurslitteraturen.    
+Den hï¿½r applikationen skall underlï¿½tta den lï¿½pande kollen att studenten har 
+lï¿½rt sig rï¿½tt saker genom att lï¿½ta hen gï¿½ra quiz pï¿½ de enskilda kursdelarna. 
+Quizen skapas av kurslï¿½rarna och handlar om de fï¿½r kursen relevanta teoretiska 
 kunskaperna. Quizen skall inte vara detsamma som prov och skall inte heller 
-användas som redskap för exempelvis tentamens, utan endast vara ett stöd för 
-studenten så att hen vet att hen har lärt sig rätt saker. Studenten ska förutom 
-att kunna göra quiz också kunna få upp en sammanställning över sina resultat 
-och vilka delar som hen har kvar att testa sig på.
+anvï¿½ndas som redskap fï¿½r exempelvis tentamens, utan endast vara ett stï¿½d fï¿½r 
+studenten sï¿½ att hen vet att hen har lï¿½rt sig rï¿½tt saker. Studenten ska fï¿½rutom 
+att kunna gï¿½ra quiz ocksï¿½ kunna fï¿½ upp en sammanstï¿½llning ï¿½ver sina resultat 
+och vilka delar som hen har kvar att testa sig pï¿½.
 
-##Användare
+##Anvï¿½ndare
 +   **Studenter**    
-    Gruppen består av de studenter som är registrerade på programmet 
-    för webbprogrammering på LNU. De vill kunna kolla och kontrollera 
-    att de har lärt sig den teoretiska delan av kursernas innehåll. 
-    De vill kunna få upp en sammanställning över hur väl de har klarat 
+    Gruppen bestï¿½r av de studenter som ï¿½r registrerade pï¿½ programmet 
+    fï¿½r webbprogrammering pï¿½ LNU. De vill kunna kolla och kontrollera 
+    att de har lï¿½rt sig den teoretiska delan av kursernas innehï¿½ll. 
+    De vill kunna fï¿½ upp en sammanstï¿½llning ï¿½ver hur vï¿½l de har klarat 
     av de olika quizen.
 
-+   **Kurslärare**    
-    Kurslärarna vill kunna skriva och skapa quiz som deras studenter ska kunna 
-    göra. Lärarna vill kunna gå inoch ändra quiz som redan skapats för att 
-    förbättar dem eller uppdatera dem om kursinnehållet ändras. De vill kunna 
-    se sammanställningar över jur bra studenterna har klarat av quizen för att 
-    exempelvis kunna hitta svårformulerade frågor eller för att kunnase vilka 
-    saker som verkar vara svårt för studenterna att lära sig.    
-    Kurslärarna har ochså ansvar för att lägga till studenter och att ansluta 
-    studenter till rätt kurser.
++   **Kurslï¿½rare**    
+    Kurslï¿½rarna vill kunna skriva och skapa quiz som deras studenter ska kunna 
+    gï¿½ra. Lï¿½rarna vill kunna gï¿½ inoch ï¿½ndra quiz som redan skapats fï¿½r att 
+    fï¿½rbï¿½ttar dem eller uppdatera dem om kursinnehï¿½llet ï¿½ndras. De vill kunna 
+    se sammanstï¿½llningar ï¿½ver jur bra studenterna har klarat av quizen fï¿½r att 
+    exempelvis kunna hitta svï¿½rformulerade frï¿½gor eller fï¿½r att kunnase vilka 
+    saker som verkar vara svï¿½rt fï¿½r studenterna att lï¿½ra sig.    
+    Kurslï¿½rarna har ochsï¿½ ansvar fï¿½r att lï¿½gga till studenter och att ansluta 
+    studenter till rï¿½tt kurser.
 
-+   **Administratör**    
-    Administratören vill kunna lägga till och ta bort kurslärare från systemet. 
-    Administratören ska ochså kunna redigera quiz om det exempelvis kommer 
-    klagomål på formuleringar från användarna.
++   **Administratï¿½r**    
+    Administratï¿½ren vill kunna lï¿½gga till och ta bort kurslï¿½rare frï¿½n systemet. 
+    Administratï¿½ren ska ochsï¿½ kunna redigera quiz om det exempelvis kommer 
+    klagomï¿½l pï¿½ formuleringar frï¿½n anvï¿½ndarna.
 
 ##Liknande system
-Det finns flera andra system som underlättar skapande och genomförande av quiz, 
-exempelvis på facebook.
+Det finns flera andra system som underlï¿½ttar skapande och genomfï¿½rande av quiz, 
+exempelvis pï¿½ facebook.
 
 ##Intressenter
 +   **Svante Arvedson**    
-    Skapare och författare till systemet. Gör projektet som en del av 
+    Skapare och fï¿½rfattare till systemet. Gï¿½r projektet som en del av 
     kursen *Webbutveckling med PHP*.
 
 +   **Daniel Toll och Emil Carlsson, LNU**    
-    Lärare i kursen *Webbutveckling med PHP*. Handleder projektet och 
-    betygsätter resultatet.
+    Lï¿½rare i kursen *Webbutveckling med PHP*. Handleder projektet och 
+    betygsï¿½tter resultatet.
 
 ##Tekniker
-Applikationen skall skrivas med skråket [PHP](http://php.net/) på serversidan 
-och med språken JavaSqript, CSS och HTML på klientsidan. Till klientkoden skall 
-ramverket [Bootstrap](http://getbootstrap.com/) användas. Applikationens 
-databas är av typen [MySQL](http://www.mysql.com/).
+Applikationen skall skrivas med skrï¿½ket [PHP](http://php.net/) pï¿½ serversidan 
+och med sprï¿½ken JavaSqript, CSS och HTML pï¿½ klientsidan. Till klientkoden skall 
+ramverket [Foundation](http://foundation.zurb.com/) anvï¿½ndas. Applikationens 
+databas ï¿½r av typen [MySQL](http://www.mysql.com/).
 
 ##Baskrav
-+   **BF1** - Applikationen ska gå att använda från desktopmiljöer såväl som 
-    från handhållna enheter.
++   **BF1** - Applikationen ska gï¿½ att anvï¿½nda frï¿½n desktopmiljï¿½er sï¿½vï¿½l som 
+    frï¿½n handhï¿½llna enheter.
 +   **BF2** - Applikationen ska kunna fungera i de nyare versionerna av 
-    webbläsarna IE, FireFox, Chrome och Safari.
-+   **BF3** - Kurslärare och administratörer ska snabbt och enkelt kunna 
+    webblï¿½sarna IE, FireFox, Chrome och Safari.
++   **BF3** - Kurslï¿½rare och administratï¿½rer ska snabbt och enkelt kunna 
     hantera quiz, kurser och studenter.

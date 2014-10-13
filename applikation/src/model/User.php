@@ -4,6 +4,10 @@ namespace model;
 
 require_once dirname(__FILE__).'/Privileges.php';
 
+/**
+ * Same object as in database table "user"
+ * @author Svante Arvedson
+ */
 class User {
 
     private $id;

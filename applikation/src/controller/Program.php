@@ -6,6 +6,10 @@ require_once dirname(__FILE__) . '/../view/Page.php';
 require_once dirname(__FILE__) . '/../view/Action.php';
 require_once dirname(__FILE__) . '/../controller/AuthenticationHandler.php';
 
+/**
+ * Master controller for the application
+ * @author Svante Arvedson
+ */
 class Program {
     public function run() {
         $page = new \view\Page();

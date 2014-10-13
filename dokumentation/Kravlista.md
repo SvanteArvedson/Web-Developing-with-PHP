@@ -17,7 +17,12 @@
     </tr>
     <tr>
         <td>13/10-2014</td>
-        <td>DF2 Status=Klar, AF2 Prioritet=H�g</td>
+        <td>DF2 Status=Klar</td>
+        <td>Svante Arvedson</td>
+    </tr>
+    <tr>
+        <td>14/10-2014</td>
+        <td>DF1 Status=Klar, AF2 Status=P�b�rjad</td>
         <td>Svante Arvedson</td>
     </tr>
 </table>
@@ -49,19 +54,11 @@
         <td>H�g</td>
     </tr>
     <tr>
-        <td><a href="Krav/DF1-Logga-in.md">DF1 - Logga in</a></td>
-        <td>Svante Arvedson</td>
-        <td></td>
-        <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a></td>
-        <td>P�b�rjad</td>
-        <td>H�g</td>
-    </tr>
-    <tr>
         <td><a href="Krav/AF2-Registrera-student-i-kurs.md">AF2 - Registrera student i kurs</a></td>
         <td>Svante Arvedson</td>
         <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
         <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a>, <a href="Vision.md#baskrav">BF3</a></td>
-        <td>Ej p�b�rjad</td>
+        <td>p�b�rjad</td>
         <td>H�g</td>
     </tr>
     <tr>
@@ -191,6 +188,13 @@
         <th>Beroende</th>
         <th>Baskrav</th>
         <th>Status</th>
+    </tr>
+    <tr>
+        <td><a href="Krav/DF1-Logga-in.md">DF1 - Logga in</a></td>
+        <td>Svante Arvedson</td>
+        <td></td>
+        <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a></td>
+        <td>Klar</td>
     </tr>
     <tr>
         <td><a href="Krav/DF2-Logga-ut.md">DF2 - Logga ut</a></td>
