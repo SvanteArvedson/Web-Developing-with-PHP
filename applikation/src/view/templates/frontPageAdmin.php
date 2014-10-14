@@ -4,7 +4,7 @@
         <div class="inner-wrap">
             <a id="toggle" class="hide-for-large right-off-canvas-toggle" href="#"><img src="<?php echo dirname($_SERVER['PHP_SELF']); ?>/img/toggleMenu.png" /></a>
             <nav class="right-off-canvas-menu">
-                <?php include (dirname(__FILE__) . '/slots/menu.php'); ?>
+                <?php include (dirname(__FILE__) . '/slots/menuAdmin.php'); ?>
             </nav>
             <div class="container">
                 <div class=" hide-for-large">
@@ -19,7 +19,7 @@
                         <div class="small-12 large-9 columns">
                             <div class="row">
                                 <div class="text-centered panel radius small-12 columns">
-                                    <h1><?php echo $user -> getUsername(); ?> - Administratörsvy</h1>
+                                    <h1><?php echo $user -> getUsername(); ?> - Startsidan</h1>
                                 </div>
                                 <div class="small-12 columns">
                                     <ul class="text-centered">
@@ -45,7 +45,7 @@
                                     <?php include (dirname(__FILE__) . '/slots/logo.php'); ?>
                                 </header>
                                 <nav class="large-12 columns">
-                                    <?php include (dirname(__FILE__) . '/slots/menu.php'); ?>
+                                    <?php include (dirname(__FILE__) . '/slots/menuAdmin.php'); ?>
                                 </nav>
                             </div>
                         </div>

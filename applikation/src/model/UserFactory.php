@@ -11,7 +11,7 @@ require_once dirname(__FILE__) . '/ErrorCode.php';
  */
 class UserFactory {
 
-    public static function recreateUser($username, $password) {
+    public function recreateUser($username, $password) {
         $repo = new UserRepository();
 
         if ($username === '') {
@@ -35,7 +35,7 @@ class UserFactory {
         }
     }
 
-    public static function createUser($id, $username, $password, $salt, $privileges) {
+    public function createUser($id, $username, $password, $salt, $privileges) {
         return new User($id, $username, $password, $salt, $privileges);
     }
 

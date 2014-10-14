@@ -31,10 +31,12 @@ class AuthenticationHandler {
     }
 
     public function doLogin() {
+        $uf = new \model\UserFactory();
+        
         if ($this -> frontPage -> isPostback() && !$this -> session -> isUserAuthenticated()) {
             try {
                 $inputs = $this -> frontPage -> getInputs();
-                $user = \model\UserFactory::recreateUser($inputs[\view\FrontPage::$nameUsername], $inputs[\view\FrontPage::$namePassword]);
+                $user = $uf -> recreateUser($inputs[\view\FrontPage::$nameUsername], $inputs[\view\FrontPage::$namePassword]);
                 $this -> session -> loginUser($user);
             } catch (\Exception $e) {
                 if ($e -> getCode() != -1) {

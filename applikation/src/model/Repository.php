@@ -11,7 +11,6 @@ require_once dirname(__FILE__).'/../settings/DatabaseSettings.php';
 class Repository {
     
     protected $connection;
-    protected $table;
     
     protected function getConnection() {
         if ($this->connection === null) {

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang='sv'>
+	<head>
+		<meta charset='UTF-8'>
+		<meta name='viewport' content='width=device-width; initial-scale=1.0'>
+		<title>Mina kurser</title>
+
+		<link rel='stylesheet' href='../../applikationcss/normalize.css'>
+		<link rel='stylesheet' href='../../applikation/css/foundation.css' />
+		<link rel='stylesheet' href='../../applikation/css/site.css' />
+
+		<script src='../../applikationjs/vendor/modernizr.js'></script>
+	</head>
+	<body>
+		<div class="off-canvas-wrap" data-offcanvas>
+			<div class="inner-wrap">
+				<a id="toggle" class="hide-for-large right-off-canvas-toggle" href="#"><img src="../../applikation/img/toggleMenu.png" /></a>
+				<nav class="right-off-canvas-menu">
+					<ul class="side-nav">
+						<li>
+							<a class="text-centered" href="../../applikation/index.php">Startsidan</a>
+						</li>
+						<li>
+							<a class="text-centered" href="../../applikation/index.php?action=addStudent">Mina kurser</a>
+						</li>
+						<li>
+							<a class="text-centered" href="../../applikation/index.php?action=logout">Logga ut</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="container">
+					<div class=" hide-for-large">
+						<div class="row">
+							<header class='small-8 medium-5 large-4 small-centered columns'>
+								<img src='../../applikation/img/newLogo.png' alt='AppQuiz' />
+							</header>
+						</div>
+					</div>
+					<div id="content">
+						<div class="row">
+							<div class="small-12 large-9 columns">
+								<div class="row">
+									<div class="text-centered panel radius small-12 columns">
+										<h1>Larare - Mina kurser</h1>
+									</div>
+									<div class="small-12 columns">
+										<div class="small-12 columns">
+											<ul class="side-nav presentation-list">
+												<li>
+													<a class="text-centered" href="#">Kurs 1</a>
+												</li>
+												<li>
+													<a class="text-centered" href="#">Kurs 2</a>
+												</li>
+												<li>
+													<a class="text-centered" href="#">Kurs 3</a>
+												</li>
+												<li>
+													<a class="text-centered" href="#">Kurs 4</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="show-for-large large-3 columns">
+								<div class="row">
+									<header class='large-12 columns'>
+										<img src='../../applikation/img/newLogo.png' alt='AppQuiz' />
+									</header>
+									<nav class="large-12 columns">
+										<ul class="side-nav">
+											<li>
+												<a class="text-centered" href="../../applikation/index.php">Startsidan</a>
+											</li>
+											<li>
+												<a class="text-centered" href="../../applikation/index.php?action=addStudent">Mina kurser</a>
+											</li>
+											<li>
+												<a class="text-centered" href="../../applikation/index.php?action=logout">Logga ut</a>
+											</li>
+										</ul>
+									</nav>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a class="exit-off-canvas"></a>
+			</div>
+		</div>
+
+		<script src='../../applikation/js/vendor/jquery.js'></script>
+		<script src='../../applikation/js/foundation.min.js'></script>
+		<script src='../../applikation/js/foundation/foundation.alert.js'></script>
+		<script src='../../applikation/js/foundation/foundation.offcanvas.js'></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
+</html>

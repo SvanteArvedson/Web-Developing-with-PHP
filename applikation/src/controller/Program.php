@@ -5,6 +5,7 @@ namespace controller;
 require_once dirname(__FILE__) . '/../view/Page.php';
 require_once dirname(__FILE__) . '/../view/Action.php';
 require_once dirname(__FILE__) . '/../controller/AuthenticationHandler.php';
+require_once dirname(__FILE__) . '/../controller/CourseHandler.php';
 
 /**
  * Master controller for the application
@@ -27,7 +28,15 @@ class Program {
                 $handler = new AuthenticationHandler();
                 $handler -> doLogout();
                 break;
+            case \view\Action::SHOW_COURSE :
+                echo "Här kommer det en kurssida såsmåningom";
+                break;
+            case \view\Action::SHOW_COURSES :
+                $handler = new CourseHandler();
+                $handler -> showCourses();
+                break;
             default :
+                //TODO: Custom error page here (404)
                 echo "Fel URL, ingen action matchas";
         }
     }

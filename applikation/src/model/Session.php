@@ -41,7 +41,7 @@ class Session {
     }
     
     public function getValue($key) {
-        return isset($_SESSION[$key]) ? $_SESSION[$key] : "";
+        return isset($_SESSION[$key]) ? $_SESSION[$key] : null;
     }
     
     public function save($key, $value) {

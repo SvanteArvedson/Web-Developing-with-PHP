@@ -4,7 +4,13 @@
         <div class="inner-wrap">
             <a id="toggle" class="hide-for-large right-off-canvas-toggle" href="#"><img src="<?php echo dirname($_SERVER['PHP_SELF']); ?>/img/toggleMenu.png" /></a>
             <nav class="right-off-canvas-menu">
-                <?php include (dirname(__FILE__) . '/slots/menuTeacher.php'); ?>
+                <?php 
+                    if ($user -> getPrivileges() === \model\Privileges::ADMIN) {
+                        include (dirname(__FILE__) . '/slots/menuAdmin.php');
+                    } else {
+                        include (dirname(__FILE__) . '/slots/menuTeacher.php');
+                    }
+                ?>
             </nav>
             <div class="container">
                 <div class=" hide-for-large">
@@ -19,31 +25,16 @@
                         <div class="small-12 large-9 columns">
                             <div class="row">
                                 <div class="text-centered panel radius small-12 columns">
-                                    <h1><?php echo $user -> getUsername(); ?> - Startsidan</h1>
+                                    <h1><?php if ($user -> getPrivileges() !== \model\Privileges::ADMIN) { echo $user -> getUsername() . " - Mina kurser"; } else { echo $user -> getUsername() . " - Alla kurser"; } ?></h1>
                                 </div>
                                 <div class="small-12 columns">
-                                    <div class="text-centered small-12 large-6 columns">
-                                        <h2>Kurser</h2>
-                                        <ul class="presentation-list">
+                                    <ul class="side-nav presentation-list">
+                                        <?php foreach ($courses as $course): ?>
                                             <li>
-                                                kurs
+                                                <a class="text-centered" href="<?php echo $_SERVER['PHP_SELF'].'?'.\view\Action::KEY.'='.\view\Action::SHOW_COURSE."&course=".$course->getId(); ?>"><?php echo $course->getName(); ?></a>
                                             </li>
-                                            <li>
-                                                kurs
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="text-centered small-12 large-6 columns">
-                                        <h2>Quiz</h2>
-                                        <ul class="presentation-list">
-                                            <li>
-                                                quiz
-                                            </li>
-                                            <li>
-                                                quiz
-                                            </li>
-                                        </ul>
-                                    </div>
+                                        <?php endforeach; ?>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -53,7 +44,13 @@
                                     <?php include (dirname(__FILE__) . '/slots/logo.php'); ?>
                                 </header>
                                 <nav class="large-12 columns">
-                                    <?php include (dirname(__FILE__) . '/slots/menuTeacher.php'); ?>
+                                    <?php 
+                                        if ($user -> getPrivileges() === \model\Privileges::ADMIN) {
+                                            include (dirname(__FILE__) . '/slots/menuAdmin.php');
+                                        } else {
+                                            include (dirname(__FILE__) . '/slots/menuTeacher.php');
+                                        }
+                                    ?>
                                 </nav>
                             </div>
                         </div>
