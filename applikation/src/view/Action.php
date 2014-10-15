@@ -9,4 +9,5 @@ class Action {
     const ADD_STUDENT = 'addStudent';
     const SHOW_COURSES = 'showCourses';
     const SHOW_COURSE = 'showCourse';
+    const EDIT_COURSE = 'editCourse';
 }

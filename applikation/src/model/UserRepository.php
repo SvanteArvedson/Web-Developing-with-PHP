@@ -11,8 +11,13 @@ require_once dirname(__FILE__) . '/UserFactory.php';
  */
 class UserRepository extends Repository {
 
-    public static $tableName = 'user';
+    // for table courseparticipation
+    private static $relationTable = 'courseparticipation';
+    private static $courseKey = 'course';
+    private static $userKey = 'user';
 
+    // fro table user
+    public static $tableName = 'user';
     public static $id = 'id';
     private static $username = 'username';
     private static $password = 'password';
@@ -32,7 +37,7 @@ class UserRepository extends Repository {
 
             $result = $query -> fetch();
 
-            if ($result != null) {
+            if ($result) {
                 $uf = new UserFactory();
                 return $uf -> createUser($result[self::$id], $result[self::$username], $result[self::$password], $result[self::$salt], $result[self::$privileges]);
             } else {
@@ -41,6 +46,62 @@ class UserRepository extends Repository {
         } catch (\Exception $e) {
             throw new \Exception($e -> getMessage(), -1);
         }
+    }
+
+    public function getTeachersOnCourse($courseId) {
+        try {
+            $connection = $this -> getConnection();
+
+            $sql = "SELECT ".self::$tableName.".".self::$id.", ".self::$tableName.".".self::$username.", ".self::$tableName.".".self::$password.", ".self::$tableName.".".self::$salt.", ".self::$tableName.".".self::$privileges.
+                   " FROM ".self::$tableName.
+                       " INNER JOIN ".self::$relationTable." ON ".self::$tableName.".".self::$id." = ".self::$relationTable.".".self::$userKey.
+                   " WHERE ".self::$tableName.".".self::$privileges." = '".Privileges::TEACHER."'".
+                       " AND ".self::$relationTable.".".self::$courseKey." = ?";
+            $param = array($courseId);
+
+            $query = $connection -> prepare($sql);
+            $query -> execute($param);
+
+            return $this->makeToUserObjects($query -> fetchAll());
+
+        } catch (\Exception $e) {
+            throw new \Exception($e -> getMessage(), -1);
+        }
+    }
+    
+    public function getStudentsOnCourse($courseId) {
+        try {
+            $connection = $this -> getConnection();
+
+            $sql = "SELECT ".self::$tableName.".".self::$id.", ".self::$tableName.".".self::$username.", ".self::$tableName.".".self::$password.", ".self::$tableName.".".self::$salt.", ".self::$tableName.".".self::$privileges.
+                   " FROM ".self::$tableName.
+                       " INNER JOIN ".self::$relationTable." ON ".self::$tableName.".".self::$id." = ".self::$relationTable.".".self::$userKey.
+                   " WHERE ".self::$tableName.".".self::$privileges." = '".Privileges::STUDENT."'".
+                       " AND ".self::$relationTable.".".self::$courseKey." = ?";
+            $param = array($courseId);
+
+            $query = $connection -> prepare($sql);
+            $query -> execute($param);
+
+            return $this->makeToUserObjects($query -> fetchAll());
+
+        } catch (\Exception $e) {
+            throw new \Exception($e -> getMessage(), -1);
+        }
+    }
+    
+    private function makeToUserObjects($results) {
+        $ret = null;
+        $uf = new UserFactory();
+        
+        if ($results != null) {
+            $ret = array();            
+            foreach ($results as $result) {
+                $ret[] = $uf -> createUser($result[self::$id], $result[self::$username], $result[self::$password], $result[self::$salt], $result[self::$privileges]);
+            }
+        }
+        
+        return $ret;
     }
 
 }

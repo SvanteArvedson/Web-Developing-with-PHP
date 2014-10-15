@@ -38,13 +38,13 @@ class FrontPage extends Page {
 
     public function echoLoginPage() {
         $errorMessage = $this -> cookie -> cookieIsset(self::$keyErrorMessage) ? $this -> cookie -> loadOnce(self::$keyErrorMessage) : null;
-        $title = "AppQuiz - Logga in";
+        $title = "QuizApp - Logga in";
         $providedUsername =  $this->cookie->cookieIsset(self::$keyProvidedUsername) ? $this->cookie->loadOnce(self::$keyProvidedUsername) : "";
         include (dirname(__FILE__) . '/templates/loginForm.php');
     }
 
     public function echoFrontPage($user) {
-        $title = "AppQuiz - Startsida";
+        $title = "QuizApp - Startsida";
         
         switch ($user->getPrivileges()) {
             case \model\Privileges::STUDENT :

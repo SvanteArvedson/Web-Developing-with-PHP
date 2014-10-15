@@ -19,7 +19,7 @@
                         <div class="small-12 large-9 columns">
                             <div class="row">
                                 <div class="text-centered panel radius small-12 columns">
-                                    <h1><?php echo $user -> getUsername(); ?> - Startsidan</h1>
+                                    <h1>Startsidan</h1>
                                 </div>
                                 <div class="small-12 columns">
                                     <div class="text-centered small-12 large-6 columns">

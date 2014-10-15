@@ -29,10 +29,11 @@ class Program {
                 $handler -> doLogout();
                 break;
             case \view\Action::SHOW_COURSE :
-                echo "Här kommer det en kurssida såsmåningom";
+                $handler = new CourseHandler(\view\Action::SHOW_COURSE);
+                $handler -> showCourse();
                 break;
             case \view\Action::SHOW_COURSES :
-                $handler = new CourseHandler();
+                $handler = new CourseHandler(\view\Action::SHOW_COURSES);
                 $handler -> showCourses();
                 break;
             default :

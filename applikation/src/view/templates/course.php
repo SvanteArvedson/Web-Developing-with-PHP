@@ -25,16 +25,40 @@
                         <div class="small-12 large-9 columns">
                             <div class="row">
                                 <div class="text-centered panel radius small-12 columns">
-                                    <h1><?php if ($user -> getPrivileges() !== \model\Privileges::ADMIN) { echo "Mina kurser"; } else { echo "Alla kurser"; } ?></h1>
+                                    <h1><?php echo $course->getName(); ?></h1>
                                 </div>
                                 <div class="small-12 columns">
-                                    <ul class="side-nav presentation-list">
-                                        <?php foreach ($courses as $course): ?>
-                                            <li>
-                                                <a class="text-centered" href="<?php echo $_SERVER['PHP_SELF'].'?'.\view\Action::KEY.'='.\view\Action::SHOW_COURSE."&".\view\CoursePage::$keyCourseId."=".$course->getId(); ?>"><?php echo $course->getName(); ?></a>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
+                                    <div class="small-12 columns">
+                                        
+                                        <?php if($user->getPrivileges() !== \model\Privileges::STUDENT): ?>
+                                            <a href="<?php echo $_SERVER['PHP_SELF'] . "?" . \view\Action::KEY . "=" . \view\Action::EDIT_COURSE . "?" . \view\CoursePage::$keyCourseId . "=" . $course -> getId(); ?>">Redigera kurs</a>
+                                        <?php endif; ?>
+                                        
+                                        <h2>Beskrivning</h2>
+                                        <p>
+                                            <?php echo $course -> getDescription(); ?>
+                                        </p>
+                                    </div>
+                                    <div class="small-12 large-6 columns">
+                                        <h2>Lärare</h2>
+                                        <ul class="presentation-list">
+                                            <?php foreach ($teachers as $teacher): ?>
+                                                <li>
+                                                    <a class="text-centered" href="#"><?php echo $teacher -> getUsername(); ?></a>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </div>
+                                    <div class="small-12 large-6 columns">
+                                        <h2>Studenter</h2>
+                                        <ul class="presentation-list">
+                                            <?php foreach ($students as $student): ?>
+                                                <li>
+                                                    <a class="text-centered" href="#"><?php echo $student -> getUsername(); ?></a>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -44,7 +68,7 @@
                                     <?php include (dirname(__FILE__) . '/slots/logo.php'); ?>
                                 </header>
                                 <nav class="large-12 columns">
-                                    <?php 
+                                    <?php
                                         if ($user -> getPrivileges() === \model\Privileges::ADMIN) {
                                             include (dirname(__FILE__) . '/slots/menuAdmin.php');
                                         } else {
