@@ -17,4 +17,8 @@ class Navigation {
         die();
     }
 
+    public function redirectToShowCourse($courseId) {
+        header('Location: ' . $_SERVER['PHP_SELF'] . "?" . Action::KEY . "=" . Action::SHOW_COURSE . "&" . CoursePage::$keyCourseId . "=" . $courseId);
+        die();
+    }
 }

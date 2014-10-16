@@ -20,17 +20,17 @@ ska applikationen för test publiseras på produktionsservern.
     <tr>
         <td><a href="../dokumentation/Krav/AF2-Registrera-student-i-kurs.md">AF2 - Registrera student i kurs</a>, Serverkod</td>
         <td>6</td>
-        <td>4</td>
+        <td>6</td>
     <tr>
     </tr>
         <td><a href="../dokumentation/Krav/AF2-Registrera-student-i-kurs.md">AF2 - Registrera student i kurs</a>, CSS</td>
         <td>2</td>
-        <td>3</td>
+        <td>4</td>
     <tr>
     </tr>
         <td><a href="../dokumentation/Krav/AF2-Registrera-student-i-kurs.md">AF2 - Registrera student i kurs</a>, JavaScript</td>
         <td>1</td>
-        <td></td>
+        <td>1</td>
     <tr>
     </tr>
         <td><a href="../dokumentation/Krav/AF2-Registrera-student-i-kurs.md">AF2 - Registrera student i kurs</a>, Databas</td>
@@ -50,6 +50,6 @@ ska applikationen för test publiseras på produktionsservern.
     <tr>
         <td><b>Summa</b></td>
         <td><b>20</b></td>
-        <td><b>9</b></td>
+        <td><b>13</b></td>
     </tr>
 </table>

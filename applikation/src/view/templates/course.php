@@ -31,7 +31,7 @@
                                     <div class="small-12 columns">
                                         
                                         <?php if($user->getPrivileges() !== \model\Privileges::STUDENT): ?>
-                                            <a href="<?php echo $_SERVER['PHP_SELF'] . "?" . \view\Action::KEY . "=" . \view\Action::EDIT_COURSE . "?" . \view\CoursePage::$keyCourseId . "=" . $course -> getId(); ?>">Redigera kurs</a>
+                                            <a class="tiny button radius" href="<?php echo $_SERVER['PHP_SELF'] . "?" . \view\Action::KEY . "=" . \view\Action::EDIT_COURSE . "&" . \view\CoursePage::$keyCourseId . "=" . $course -> getId(); ?>">Redigera kurs</a>
                                         <?php endif; ?>
                                         
                                         <h2>Beskrivning</h2>

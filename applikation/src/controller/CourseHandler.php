@@ -22,6 +22,51 @@ class CourseHandler {
         $this -> action = $action;
     }
 
+    public function editCourse() {
+        $user = $this -> session -> getValue(\model\Session::$keyUser);
+        $courseRepo = new \model\CourseRepository();
+        $userRepo = new \model\UserRepository();
+        
+        if ($this -> session -> isUserAuthenticated() && $user -> getPrivileges() !== \model\Privileges::STUDENT) {
+            $param = $this -> coursePage -> getUrlParameters($this -> action);
+            $course = $courseRepo -> getCourseById($param[\view\CoursePage::$keyCourseId]);
+
+            if ($course) {
+                
+                if ($this -> coursePage -> isPostback()) {
+                    
+                    $inputs = $this -> coursePage -> getInputs();
+                    
+                    if ($inputs[\view\CoursePage::$nameInfoChange] === "true") {
+                        var_dump("Kursinformationen ändrades.");
+                    }
+                    if ($inputs[\view\CoursePage::$nameTeachersChange] === "true") {
+                        var_dump("Kursens lärare ändrades.");
+                    }
+                    if ($inputs[\view\CoursePage::$nameStudentsChange] === "true") {
+                        var_dump("Kursens studenter ändrades.");
+                    }
+                    var_dump("Sista utropet!");
+                    die();
+                
+                    //$this -> navigation -> redirectToShowCourse($course -> getId());
+                } else {
+                    $allTeachers = $userRepo -> getAllTeachers();
+                    $allStudents = $userRepo -> getAllStudents();
+                    $teachersOnCourse = $userRepo -> getTeachersOnCourse($param[\view\CoursePage::$keyCourseId]);
+                    $studentsOnCourse = $userRepo -> getStudentsOnCourse($param[\view\CoursePage::$keyCourseId]);
+                    $this -> coursePage -> echoEditCourse($user, $course, $allTeachers, $allStudents, $teachersOnCourse, $studentsOnCourse);
+                }
+                
+            } else {
+                $this -> navigation -> redirectToShowCourses();
+            }
+            
+        } else {
+            $this -> navigation -> redirectToFrontPage();
+        }
+    }
+
     public function showCourses() {
         $user = $this -> session -> getValue(\model\Session::$keyUser);
         $repo = new \model\CourseRepository();
@@ -47,7 +92,7 @@ class CourseHandler {
         $userRepo = new \model\UserRepository();
 
         if ($this -> session -> isUserAuthenticated()) {
-            $param = $this -> coursePage -> getInputParameters($this -> action);
+            $param = $this -> coursePage -> getUrlParameters($this -> action);
 
             if ($user -> getPrivileges() === \model\Privileges::ADMIN) {
                 $course = $courseRepo -> getCourseById($param[\view\CoursePage::$keyCourseId]);

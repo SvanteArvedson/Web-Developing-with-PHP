@@ -36,6 +36,10 @@ class Program {
                 $handler = new CourseHandler(\view\Action::SHOW_COURSES);
                 $handler -> showCourses();
                 break;
+            case \view\Action::EDIT_COURSE :
+                $handler = new CourseHandler(\view\Action::EDIT_COURSE);
+                $handler -> editCourse();
+                break;
             default :
                 //TODO: Custom error page here (404)
                 echo "Fel URL, ingen action matchas";

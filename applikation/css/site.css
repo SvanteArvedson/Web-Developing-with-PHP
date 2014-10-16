@@ -1,6 +1,6 @@
 body {
 	height: 100%;
-	padding: 0;
+	padding: 0 0.5em;;
 	background-color: #FAFAFA;
 }
 
@@ -16,6 +16,30 @@ header {
 	min-height: 100%;
 }
 
+fieldset {
+	margin: 0.5em 0;
+}
+
+fieldset.radius {
+	border-radius: 3px; 
+}
+
+textarea {
+	margin: 0;
+	height: 10em;
+}
+
+fieldset legend,
+label, 
+.ms-selectable label, 
+.ms-selection label {
+	background-color: #FAFAFA;
+}
+
+.editCourseButton {
+	margin: 1em 0;
+}
+
 #toggle {
 	position: fixed;
 	top: 0;
@@ -23,11 +47,6 @@ header {
 	padding: 0.5em 0.5em 0 0;
 	width: 20%;
 	z-index: 100;
-}
-
-.panel {
-	max-width: 94%; 
-	margin: 0 3%;
 }
 
 .presentation-list {

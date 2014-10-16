@@ -89,6 +89,40 @@ class UserRepository extends Repository {
             throw new \Exception($e -> getMessage(), -1);
         }
     }
+
+    public function getAllTeachers() {
+        try {
+            $connection = $this -> getConnection();
+
+            $sql = "SELECT * FROM ".self::$tableName." WHERE ".self::$privileges." = '".Privileges::TEACHER."'";
+            $param = array();
+
+            $query = $connection -> prepare($sql);
+            $query -> execute($param);
+
+            return $this->makeToUserObjects($query -> fetchAll());
+
+        } catch (\Exception $e) {
+            throw new \Exception($e -> getMessage(), -1);
+        }
+    }
+    
+    public function getAllStudents() {
+        try {
+            $connection = $this -> getConnection();
+
+            $sql = "SELECT * FROM ".self::$tableName." WHERE ".self::$privileges." = '".Privileges::STUDENT."'";
+            $param = array();
+
+            $query = $connection -> prepare($sql);
+            $query -> execute($param);
+
+            return $this->makeToUserObjects($query -> fetchAll());
+
+        } catch (\Exception $e) {
+            throw new \Exception($e -> getMessage(), -1);
+        }
+    }
     
     private function makeToUserObjects($results) {
         $ret = null;

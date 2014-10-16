@@ -33,7 +33,8 @@ class FrontPage extends Page {
     }
 
     public function getInputs() {
-        return array(self::$nameUsername => $_POST[self::$nameUsername], self::$namePassword => $_POST[self::$namePassword]);
+        //return array(self::$nameUsername => $_POST[self::$nameUsername], self::$namePassword => $_POST[self::$namePassword]);
+        return $_POST;
     }
 
     public function echoLoginPage() {

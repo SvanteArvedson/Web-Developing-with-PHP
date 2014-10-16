@@ -9,12 +9,27 @@ class CoursePage extends Page {
     
     public static $keyCourseId = 'course';
     
-    public function getInputParameters($action) {
+    public static $nameInfoChange = 'changeInfo';
+    public static $nameTeachersChange = 'changeTeachers';
+    public static $nameStudentsChange = 'changeStudents';
+    public static $nameCourseName = 'courseName';
+    public static $nameDescription = 'courseDescription';
+    public static $nameTeachers = 'courseTeachers[]';
+    public static $nameStudents = 'courseStudents[]';
+    
+    public function getUrlParameters($action) {
         switch ($action) {
             case Action::SHOW_COURSE :
                 return array(self::$keyCourseId => $_GET[self::$keyCourseId]);
                 break;
+            case Action::EDIT_COURSE :
+                return array(self::$keyCourseId => $_GET[self::$keyCourseId]);
+                break;
         }
+    }
+
+    public function getInputs() {
+        return $_POST;
     }
     
     public function echoListCourses(\model\User $user, $courses) {
@@ -31,5 +46,9 @@ class CoursePage extends Page {
         $title = "QuizApp - " . $course->getName();
         include (dirname(__FILE__) . '/templates/course.php');
     }
-    
+
+    public function echoEditCourse(\model\User $user, \model\Course $course, $allTeachers, $allStudents, $teachersOnCourse, $studentsOnCourse) {       
+        $title = "QuizApp - redigera " . $course->getName();
+        include (dirname(__FILE__) . '/templates/editCourse.php');
+    }    
 }
