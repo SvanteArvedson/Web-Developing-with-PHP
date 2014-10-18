@@ -39,6 +39,8 @@ class CourseRepository extends Repository {
     }
 
     public function getCourseWithParticipationBy($userId, $courseId) {
+        $userRepo = new UserRepository();
+        
         try {
             $connection = $this -> getConnection();
 
@@ -56,7 +58,11 @@ class CourseRepository extends Repository {
             
             $ret = null;
             if ($result) {
-                $ret = new Course($result[self::$id], $result[self::$name], $result[self::$description]);
+                
+                $teachers = $userRepo -> getTeachersOnCourse($result[self::$id]);
+                $students = $userRepo -> getStudentsOnCourse($result[self::$id]);
+                
+                $ret = new Course($result[self::$id], $result[self::$name], $result[self::$description], $teachers, $students);
             }
             return $ret;
 
@@ -83,6 +89,8 @@ class CourseRepository extends Repository {
     }
     
     public function getCourseById($courseId) {
+        $userRepo = new UserRepository();
+        
         try {
             $connection = $this -> getConnection();
             
@@ -96,7 +104,11 @@ class CourseRepository extends Repository {
             
             $ret = null;
             if ($result) {
-                $ret = new Course($result[self::$id], $result[self::$name], $result[self::$description]);
+
+                $teachers = $userRepo -> getTeachersOnCourse($result[self::$id]);
+                $students = $userRepo -> getStudentsOnCourse($result[self::$id]);
+
+                $ret = new Course($result[self::$id], $result[self::$name], $result[self::$description], $teachers, $students);
             }
             return $ret;
 
@@ -104,14 +116,46 @@ class CourseRepository extends Repository {
             throw new \Exception($e -> getMessage(), -1);
         }
     }
-    
+
+    public function updateCourseInfo($course) {
+        if (!$course->getName()) {
+            throw new \InvalidArgumentException("Course must have a name", ErrorCode::COURSE_NAME_EMPTY);
+        }
+        if (!$course->getDescription()) {
+            throw new \InvalidArgumentException("Course must have a name", ErrorCode::COURSE_DESCRIPTION_EMPTY);
+        }
+        
+        try {
+            $connection = $this -> getConnection();
+            
+            $sql = "UPDATE " . self::$tableName . 
+                   " SET " . self::$name . " = ?, " . self::$description . " = ?" .
+                   " WHERE " . self::$id . " = ?"; 
+            $param = array($course->getName(), $course->getDescription(), $course->getId());
+
+            $query = $connection -> prepare($sql);
+            $query -> execute($param);
+
+        } catch (\Exception $e) {
+            throw new \Exception($e -> getMessage(), -1);
+        }
+    }
+
     private function makeToCourseObjects($results) {
+        $userRepo = new UserRepository();
+
         $ret = null;
         if ($results != null) {
             $ret = array();
-            
+
             foreach ($results as $result) {
-                $ret[] = new Course($result[self::$id], $result[self::$name], $result[self::$description]);
+                $teachers = $userRepo -> getTeachersOnCourse($result[self::$id]);
+                $students = $userRepo -> getStudentsOnCourse($result[self::$id]); 
+
+                $teachers = $teachers != null ? $teachers : array();
+                $students = $students != null ? $students : array();
+
+                $ret[] = new Course($result[self::$id], $result[self::$name], $result[self::$description], $teachers, $students);
             }
         }
         

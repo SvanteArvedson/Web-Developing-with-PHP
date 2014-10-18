@@ -11,6 +11,7 @@ require_once dirname(__FILE__) . '/Cookie.php';
 class Page {
 
     protected static $keyErrorMessage = "Page::ErrorMessage";
+    protected static $keySuccessMessage = "Page::SuccessMessage";
     protected $cookie;
 
     public function __construct() {
@@ -31,5 +32,9 @@ class Page {
 
     protected function addErrorMessage($errorMessage) {
         $this->cookie->save(self::$keyErrorMessage, $errorMessage);
+    }
+
+    protected function addSuccessMessage($successMessage) {
+        $this->cookie->save(self::$keySuccessMessage, $successMessage);
     }
 }

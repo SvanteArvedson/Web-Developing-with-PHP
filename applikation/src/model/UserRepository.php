@@ -24,7 +24,6 @@ class UserRepository extends Repository {
     private static $salt = 'salt';
     private static $privileges = 'privileges';
 
-
     public function getUserByUsername($username) {
         try {
             $connection = $this -> getConnection();
@@ -43,6 +42,32 @@ class UserRepository extends Repository {
             } else {
                 return null;
             }
+        } catch (\Exception $e) {
+            throw new \Exception($e -> getMessage(), -1);
+        }
+    }
+
+    public function getUsersByIds(array $userIds) {
+        try {
+            $connection = $this -> getConnection();
+
+            $placeHolders = "";
+            for ($i = 0; $i < count($userIds); $i += 1) {
+                if ($i == count($userIds) - 1) {
+                    $placeHolders .= "?";
+                } else {
+                    $placeHolders .= "?, ";
+                }
+            }
+
+            $sql = "SELECT * FROM " . self::$tableName . " WHERE " . self::$tableName . "." . self::$id . " IN (" . $placeHolders . ")";
+            $param = $userIds;
+
+            $query = $connection -> prepare($sql);
+            $query -> execute($param);
+
+            return $this->makeToUserObjects($query -> fetchAll());
+
         } catch (\Exception $e) {
             throw new \Exception($e -> getMessage(), -1);
         }
@@ -123,13 +148,101 @@ class UserRepository extends Repository {
             throw new \Exception($e -> getMessage(), -1);
         }
     }
+
+    public function updateTeachersOnCourse($courseId, $teachers) {
+        try {
+            $connection = $this -> getConnection();
+            
+            $sql =  "DELETE " . self::$relationTable . 
+                    " FROM " . self::$relationTable .
+                        " INNER JOIN " . self::$tableName . 
+                        " ON " . self::$relationTable . "." . self::$userKey . " = " . self::$tableName . "." . self::$id . 
+                    " WHERE " . self::$tableName . "." . self::$privileges . " = '" . Privileges::TEACHER . "'" .
+                    " AND " . self::$courseKey . " = ?";
+            $param = array($courseId);
+            
+            $query = $connection -> prepare($sql);
+            $query -> execute($param);
+            
+            if (count($teachers) !== 0) {
+                
+                $insertPlaceholders = "";
+                
+                for ($i = 0; $i < count($teachers); $i += 1) {
+                    if ($i === count($teachers) - 1) {
+                        $insertPlaceholders .= "( ? , ? )";
+                    } else {
+                        $insertPlaceholders .= "( ? , ? ), ";
+                    }
+                }
+                
+                $sql = "INSERT INTO " . self::$relationTable . 
+                       " VALUES " . $insertPlaceholders;
+
+                $param = array();
+                foreach ($teachers as $teacher) {
+                    $param[] = $courseId;
+                    $param[] = $teacher->getId();
+                }
+    
+                $query = $connection -> prepare($sql);
+                $query -> execute($param);
+            }
+
+        } catch (\Exception $e) {
+            throw new \Exception($e -> getMessage(), -1);
+        }
+    }
+    
+    public function updateStudentsOnCourse($courseId, $students) {
+        try {
+            $connection = $this -> getConnection();
+            
+            $sql =  "DELETE " . self::$relationTable . 
+                    " FROM " . self::$relationTable .
+                        " INNER JOIN " . self::$tableName . 
+                        " ON " . self::$relationTable . "." . self::$userKey . " = " . self::$tableName . "." . self::$id . 
+                    " WHERE " . self::$tableName . "." . self::$privileges . " = '" . Privileges::STUDENT . "'" .
+                    " AND " . self::$courseKey . " = ?";
+            $param = array($courseId);
+            
+            $query = $connection -> prepare($sql);
+            $query -> execute($param);
+            
+            if (count($students) !== 0) {
+                
+                $insertPlaceholders = "";
+                for ($i = 0; $i < count($students); $i += 1) {
+                    if ($i === count($students) - 1) {
+                        $insertPlaceholders .= "( ? , ? )";
+                    } else {
+                        $insertPlaceholders .= "( ? , ? ), ";
+                    }
+                }
+                
+                $sql = "INSERT INTO " . self::$relationTable . 
+                       " VALUES " . $insertPlaceholders;
+
+                $param = array();
+                foreach ($students as $student) {
+                    $param[] = $courseId;
+                    $param[] = $student->getId();
+                }
+    
+                $query = $connection -> prepare($sql);
+                $query -> execute($param);
+            }
+
+        } catch (\Exception $e) {
+            throw new \Exception($e -> getMessage(), -1);
+        }
+    }
     
     private function makeToUserObjects($results) {
-        $ret = null;
+        $ret = array();
         $uf = new UserFactory();
         
-        if ($results != null) {
-            $ret = array();            
+        if ($results != null) {           
             foreach ($results as $result) {
                 $ret[] = $uf -> createUser($result[self::$id], $result[self::$username], $result[self::$password], $result[self::$salt], $result[self::$privileges]);
             }

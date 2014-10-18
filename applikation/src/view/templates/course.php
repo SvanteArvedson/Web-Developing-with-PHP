@@ -28,37 +28,37 @@
                                     <h1><?php echo $course->getName(); ?></h1>
                                 </div>
                                 <div class="small-12 columns">
-                                    <div class="small-12 columns">
-                                        
-                                        <?php if($user->getPrivileges() !== \model\Privileges::STUDENT): ?>
-                                            <a class="tiny button radius" href="<?php echo $_SERVER['PHP_SELF'] . "?" . \view\Action::KEY . "=" . \view\Action::EDIT_COURSE . "&" . \view\CoursePage::$keyCourseId . "=" . $course -> getId(); ?>">Redigera kurs</a>
-                                        <?php endif; ?>
-                                        
-                                        <h2>Beskrivning</h2>
-                                        <p>
-                                            <?php echo $course -> getDescription(); ?>
-                                        </p>
-                                    </div>
-                                    <div class="small-12 large-6 columns">
-                                        <h2>Lärare</h2>
-                                        <ul class="presentation-list">
-                                            <?php foreach ($teachers as $teacher): ?>
-                                                <li>
-                                                    <a class="text-centered" href="#"><?php echo $teacher -> getUsername(); ?></a>
-                                                </li>
-                                            <?php endforeach; ?>
-                                        </ul>
-                                    </div>
-                                    <div class="small-12 large-6 columns">
-                                        <h2>Studenter</h2>
-                                        <ul class="presentation-list">
-                                            <?php foreach ($students as $student): ?>
-                                                <li>
-                                                    <a class="text-centered" href="#"><?php echo $student -> getUsername(); ?></a>
-                                                </li>
-                                            <?php endforeach; ?>
-                                        </ul>
-                                    </div>
+                                    
+                                    <?php if($successMessage !== null) { include(dirname(__FILE__) . '/slots/success.php'); } ?>
+                                    
+                                    <?php if($user->getPrivileges() !== \model\Privileges::STUDENT): ?>
+                                        <a class="tiny button radius" href="<?php echo $_SERVER['PHP_SELF'] . "?" . \view\Action::KEY . "=" . \view\Action::EDIT_COURSE . "&" . \view\CoursePage::$keyCourseId . "=" . $course -> getId(); ?>">Redigera kurs</a>
+                                    <?php endif; ?>
+                                    
+                                    <h2>Beskrivning</h2>
+                                    <p>
+                                        <?php echo $course -> getDescription(); ?>
+                                    </p>
+                                </div>
+                                <div class="small-12 large-6 columns">
+                                    <h2>Lärare</h2>
+                                    <ul class="presentation-list">
+                                        <?php foreach ($course -> getTeachers() as $teacher): ?>
+                                            <li>
+                                                <a class="text-centered" href="#"><?php echo $teacher -> getUsername(); ?></a>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                                <div class="small-12 large-6 columns">
+                                    <h2>Studenter</h2>
+                                    <ul class="presentation-list">
+                                        <?php foreach ($course -> getStudents() as $student): ?>
+                                            <li>
+                                                <a class="text-centered" href="#"><?php echo $student -> getUsername(); ?></a>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
                                 </div>
                             </div>
                         </div>

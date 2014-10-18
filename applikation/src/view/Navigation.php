@@ -21,4 +21,9 @@ class Navigation {
         header('Location: ' . $_SERVER['PHP_SELF'] . "?" . Action::KEY . "=" . Action::SHOW_COURSE . "&" . CoursePage::$keyCourseId . "=" . $courseId);
         die();
     }
+
+    public function redirectToEditCourse($courseId) {
+        header('Location: ' . $_SERVER['PHP_SELF'] . "?" . Action::KEY . "=" . Action::EDIT_COURSE . "&" . CoursePage::$keyCourseId . "=" . $courseId);
+        die();
+    }
 }

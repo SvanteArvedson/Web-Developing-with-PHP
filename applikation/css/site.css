@@ -55,7 +55,7 @@ label,
 	list-style-position: outside;
 }
 
-p.error-message {
+p.error-message, p.success-message {
 	margin: 0;
 	font-size: 0.75rem;
 }

@@ -26,44 +26,68 @@ class CourseHandler {
         $user = $this -> session -> getValue(\model\Session::$keyUser);
         $courseRepo = new \model\CourseRepository();
         $userRepo = new \model\UserRepository();
+        $param = $this -> coursePage -> getUrlParameters($this -> action);
+        $course = $courseRepo -> getCourseById($param[\view\CoursePage::$keyCourseId]);
         
         if ($this -> session -> isUserAuthenticated() && $user -> getPrivileges() !== \model\Privileges::STUDENT) {
-            $param = $this -> coursePage -> getUrlParameters($this -> action);
-            $course = $courseRepo -> getCourseById($param[\view\CoursePage::$keyCourseId]);
-
+            
             if ($course) {
-                
+                // If POST request
                 if ($this -> coursePage -> isPostback()) {
-                    
                     $inputs = $this -> coursePage -> getInputs();
                     
-                    if ($inputs[\view\CoursePage::$nameInfoChange] === "true") {
-                        var_dump("Kursinformationen ändrades.");
+                    $teachers = isset($inputs[\view\CoursePage::$nameArrayTeachers]) ? $userRepo -> getUsersByIds($inputs[\view\CoursePage::$nameArrayTeachers]) : array();
+                    $students = isset($inputs[\view\CoursePage::$nameArrayStudents]) ? $userRepo -> getUsersByIds($inputs[\view\CoursePage::$nameArrayStudents]) : array();
+                    
+                    $course -> setName($inputs[\view\CoursePage::$nameCourseName]);
+                    $course -> setDescription($inputs[\view\CoursePage::$nameDescription]);
+                    $course -> setTeachers($teachers);
+                    $course -> setStudents($students);
+
+                    try {
+                        if ($inputs[\view\CoursePage::$nameInfoChange] === "true") {
+                            $courseRepo -> updateCourseInfo($course);
+                        }
+                        
+                        if ($inputs[\view\CoursePage::$nameTeachersChange] === "true" && $user -> getPrivileges() === \model\Privileges::ADMIN) {
+                            $userRepo -> updateTeachersOnCourse($course -> getId(), $course -> getTeachers());
+                        }
+                        
+                        if ($inputs[\view\CoursePage::$nameStudentsChange] === "true") {
+                            $userRepo -> updateStudentsOnCourse($course -> getId(), $course -> getStudents());
+                        }
+                        
+                        $this -> coursePage -> createSuccessMessage();
+                        $this -> navigation -> redirectToShowCourse($course -> getId());
+
+                    } catch (\Exception $e) {
+                        // form echoed with error messages
+                        if ($e -> getCode() != -1) {
+                            $this -> coursePage -> saveCourse($course);
+                            $this -> coursePage -> createErrorMessage($e -> getCode());
+
+                            $this -> navigation -> redirectToEditCourse($course -> getId());
+                        } else {
+                            //TODO: show a custom error page here
+                            var_dump($e);
+                            die();
+                        }
                     }
-                    if ($inputs[\view\CoursePage::$nameTeachersChange] === "true") {
-                        var_dump("Kursens lärare ändrades.");
-                    }
-                    if ($inputs[\view\CoursePage::$nameStudentsChange] === "true") {
-                        var_dump("Kursens studenter ändrades.");
-                    }
-                    var_dump("Sista utropet!");
-                    die();
-                
-                    //$this -> navigation -> redirectToShowCourse($course -> getId());
+                // If GET request    
                 } else {
                     $allTeachers = $userRepo -> getAllTeachers();
                     $allStudents = $userRepo -> getAllStudents();
-                    $teachersOnCourse = $userRepo -> getTeachersOnCourse($param[\view\CoursePage::$keyCourseId]);
-                    $studentsOnCourse = $userRepo -> getStudentsOnCourse($param[\view\CoursePage::$keyCourseId]);
-                    $this -> coursePage -> echoEditCourse($user, $course, $allTeachers, $allStudents, $teachersOnCourse, $studentsOnCourse);
-                }
-                
+                    $this -> coursePage -> echoEditCourse($user, $course, $allTeachers, $allStudents);
+                }   
             } else {
                 $this -> navigation -> redirectToShowCourses();
             }
-            
         } else {
-            $this -> navigation -> redirectToFrontPage();
+            if ($course) {
+                $this -> navigation -> redirectToShowCourse($course -> getId());
+            } else {
+                $this -> navigation -> redirectToShowCourses();
+            }
         }
     }
 
@@ -101,9 +125,7 @@ class CourseHandler {
             }
 
             if ($course) {
-                $teachers = $userRepo -> getTeachersOnCourse($param[\view\CoursePage::$keyCourseId]);
-                $students = $userRepo -> getStudentsOnCourse($param[\view\CoursePage::$keyCourseId]);
-                $this -> coursePage -> echoCourse($user, $course, $teachers, $students);
+                $this -> coursePage -> echoCourse($user, $course);
 
             } else {
                 //TODO: Show custom error page here

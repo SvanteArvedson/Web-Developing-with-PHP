@@ -12,7 +12,7 @@
     </tr>
     <tr>
         <td>7/10-2014</td>
-        <td>DF1 Status=Påbörjad, AF2 Prioritet=H�g</td>
+        <td>DF1 Status=Påbörjad, AF2 Prioritet=Hög</td>
         <td>Svante Arvedson</td>
     </tr>
     <tr>
@@ -23,6 +23,11 @@
     <tr>
         <td>14/10-2014</td>
         <td>DF1 Status=Klar, AF2 Status=Påbörjad</td>
+        <td>Svante Arvedson</td>
+    </tr>
+    <tr>
+        <td>18/10-2014</td>
+        <td>AF2 Status=Klar, AF3 Status=Klar, AF8 Status=Klar, AF9 Status=Klar, AF12 Status=Klar, AF13 Status=Påbörjad, AF14 Status=Påbörjad</td>
         <td>Svante Arvedson</td>
     </tr>
 </table>
@@ -42,7 +47,7 @@
         <td>Svante Arvedson</td>
         <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
         <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a></td>
-        <td>Ej påbörjad</td>
+        <td>Påbörjad</td>
         <td>Hög</td>
     </tr>
     <tr>
@@ -50,14 +55,6 @@
         <td>Svante Arvedson</td>
         <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
         <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a></td>
-        <td>Ej påbörjad</td>
-        <td>Hög</td>
-    </tr>
-    <tr>
-        <td><a href="Krav/AF2-Registrera-student-i-kurs.md">AF2 - Registrera student i kurs</a></td>
-        <td>Svante Arvedson</td>
-        <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
-        <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a>, <a href="Vision.md#baskrav">BF3</a></td>
         <td>Påbörjad</td>
         <td>Hög</td>
     </tr>
@@ -86,14 +83,6 @@
         <td>Medel</td>
     </tr>
     <tr>
-        <td><a href="Krav/AF3-Avregistrera-student-fran-kurs.md">AF3 - Avregistrera student fr�n kurs</a></td>
-        <td>Svante Arvedson</td>
-        <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
-        <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a>, <a href="Vision.md#baskrav">BF3</a></td>
-        <td>Ej påbörjad</td>
-        <td>Låg</td>
-    </tr>
-    <tr>
         <td><a href="Krav/AF1-Skapa-studentkonto.md">AF1 - Skapa studentkonto</a></td>
         <td>Svante Arvedson</td>
         <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
@@ -103,22 +92,6 @@
     </tr>
     <tr>
         <td><a href="Krav/AF7-Skapa-kurslararkonto.md">AF7 - Skapa kurslärarkonto</a></td>
-        <td>Svante Arvedson</td>
-        <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
-        <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a>, <a href="Vision.md#baskrav">BF3</a></td>
-        <td>Ej påbörjad</td>
-        <td>Låg</td>
-    </tr>
-    <tr>
-        <td><a href="Krav/AF8-Registrera-larare-till-kurs.md">AF8 - Registrera lärare till kurs</a></td>
-        <td>Svante Arvedson</td>
-        <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
-        <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a>, <a href="Vision.md#baskrav">BF3</a></td>
-        <td>Ej påbörjad</td>
-        <td>Låg</td>
-    </tr>
-    <tr>
-        <td><a href="Krav/AF9-Avregistrera-larare-fran-kurs.md">AF9 - Avregistrera lärare från kurs</a></td>
         <td>Svante Arvedson</td>
         <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
         <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a>, <a href="Vision.md#baskrav">BF3</a></td>
@@ -141,14 +114,6 @@
         <td>Ej påbörjad</td>
         <td>Låg</td>
     </tr>
-    <tr>
-        <td><a href="Krav/AF12-Redigera-kurs.md">AF12 - Redigera kurs</a></td>
-        <td>Svante Arvedson</td>
-        <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
-        <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a>, <a href="Vision.md#baskrav">BF3</a></td>
-        <td>Ej påbörjad</td>
-        <td>Låg</td>
-    </tr>
 </table>
 
 ##Icke funktionella krav
@@ -161,17 +126,17 @@
     <tr>
         <td>ÖK1</td>
         <td>Svante Arvedson</td>
-        <td>HTML koden ska ha en struktur som g�r det l�tt att designa om applikationen genom att skriva en nya CSS-filer.</td>
+        <td>HTML koden ska ha en struktur som gör det lätt att designa om applikationen genom att skriva en nya CSS-filer.</td>
     </tr>
     <tr>
         <td>ÖK2</td>
         <td>Daniel Toll</td>
-        <td>Koden skall h�lla en god kodkvalitet och vara objektorienterad i en MVC struktur.</td>
+        <td>Koden skall hålla en god kodkvalitet och vara objektorienterad i en MVC struktur.</td>
     </tr>
     <tr>
         <td>ÖK3</td>
         <td>Svante Arvedson</td>
-        <td>Anv�ndaren ska f� tydliga fel- och r�ttmeddelanden.</td>
+        <td>Användaren ska få tydliga fel- och rättmeddelanden.</td>
     </tr>
     <tr>
         <td>ÖK4</td>
@@ -201,6 +166,41 @@
         <td>Svante Arvedson</td>
         <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
         <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a></td>
+        <td>Klar</td>
+    </tr>
+    <tr>
+        <td><a href="Krav/AF2-Registrera-student-i-kurs.md">AF2 - Registrera student i kurs</a></td>
+        <td>Svante Arvedson</td>
+        <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
+        <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a>, <a href="Vision.md#baskrav">BF3</a></td>
+        <td>Klar</td>
+    </tr>
+    <tr>
+        <td><a href="Krav/AF3-Avregistrera-student-fran-kurs.md">AF3 - Avregistrera student från kurs</a></td>
+        <td>Svante Arvedson</td>
+        <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
+        <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a>, <a href="Vision.md#baskrav">BF3</a></td>
+        <td>Klar</td>
+    </tr>
+    <tr>
+        <td><a href="Krav/AF8-Registrera-larare-till-kurs.md">AF8 - Registrera lärare till kurs</a></td>
+        <td>Svante Arvedson</td>
+        <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
+        <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a>, <a href="Vision.md#baskrav">BF3</a></td>
+        <td>Klar</td>
+    </tr>
+    <tr>
+        <td><a href="Krav/AF9-Avregistrera-larare-fran-kurs.md">AF9 - Avregistrera lärare från kurs</a></td>
+        <td>Svante Arvedson</td>
+        <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
+        <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a>, <a href="Vision.md#baskrav">BF3</a></td>
+        <td>Klar</td>
+    </tr>
+    <tr>
+        <td><a href="Krav/AF12-Redigera-kurs.md">AF12 - Redigera kurs</a></td>
+        <td>Svante Arvedson</td>
+        <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
+        <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a>, <a href="Vision.md#baskrav">BF3</a></td>
         <td>Klar</td>
     </tr>
 </table>
