@@ -2,6 +2,7 @@
 
 namespace model;
 
+require_once dirname(__FILE__) . '/User.php';
 require_once dirname(__FILE__) . '/UserRepository.php';
 require_once dirname(__FILE__) . '/ErrorCode.php';
 

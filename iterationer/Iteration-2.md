@@ -15,7 +15,7 @@ ska applikationen för test publiseras på produktionsservern.
     <tr>
         <td><a href="../dokumentation/Krav/AF2-Registrera-student-i-kurs.md">DF1 - Registrera student i kurs</a>, Testfall och testrapport</td>
         <td>1</td>
-        <td>1</td>
+        <td>3</td>
     </tr>
     <tr>
         <td><a href="../dokumentation/Krav/AF2-Registrera-student-i-kurs.md">AF2 - Registrera student i kurs</a>, Serverkod</td>
@@ -50,6 +50,6 @@ ska applikationen för test publiseras på produktionsservern.
     <tr>
         <td><b>Summa</b></td>
         <td><b>20</b></td>
-        <td><b>19</b></td>
+        <td><b>21</b></td>
     </tr>
 </table>

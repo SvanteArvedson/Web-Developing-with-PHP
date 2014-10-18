@@ -2,6 +2,7 @@
 
 namespace model;
 
+require_once dirname(__FILE__) . '/Privileges.php';
 require_once dirname(__FILE__) . '/Repository.php';
 require_once dirname(__FILE__) . '/UserFactory.php';
 
