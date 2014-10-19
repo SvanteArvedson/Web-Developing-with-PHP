@@ -38,7 +38,7 @@ namespace view;
 							<form id="editCourseForm" method="post" action="<?php echo $_SERVER['PHP_SELF'] . "?" . Action::KEY . "=" . Action::EDIT_COURSE . "&amp;" . CoursePage::$keyCourseId . "=" . $course -> getId(); ?>">
 								<div class="small-12 columns">
 								    <input id="editCourseSubmit" class="editCourseButton tiny button radius" type="submit" value="Spara ändringar" disabled="disabled" />
-								    <a class="editCourseButton tiny button radius right" href="<?php $_SERVER['PHP_SELF'] . "?" . Action::KEY . "=" . Action::EDIT_COURSE . "&" . CoursePage::$keyCourseId . "=" . $course -> getId(); ?>" >Återställ</a>
+								    <a class="editCourseButton tiny button radius right" href="<?php echo $_SERVER['PHP_SELF'] . "?" . Action::KEY . "=" . Action::EDIT_COURSE . "&amp;" . CoursePage::$keyCourseId . "=" . $course -> getId(); ?>" >Återställ</a>
 								    <fieldset class="radius">
 										<legend>
 											Kursinformation

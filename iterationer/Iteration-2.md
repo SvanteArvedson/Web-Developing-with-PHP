@@ -45,11 +45,11 @@ ska applikationen för test publiseras på produktionsservern.
     </tr>
         <td>Publisera applikationen på produktionsservern</td>
         <td>2</td>
-        <td></td>
+        <td>2</td>
     <tr>
     <tr>
         <td><b>Summa</b></td>
         <td><b>20</b></td>
-        <td><b>21</b></td>
+        <td><b>23</b></td>
     </tr>
 </table>
