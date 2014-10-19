@@ -19,7 +19,7 @@ projektredovisning.
     </tr>
         <td><a href="../dokumentation/Krav/AF14-Gor-quiz.md">AF14 - Gör quiz</a>, CSS</td>
         <td>4</td>
-        <td></td>
+        <td>2</td>
     <tr>
     </tr>
         <td><a href="../dokumentation/Krav/AF14-Gor-quiz.md">AF14 - Gör quiz</a>, JavaScript</td>
@@ -29,7 +29,7 @@ projektredovisning.
     </tr>
         <td><a href="../dokumentation/Krav/AF14-Gor-quiz.md">AF14 - Gör quiz</a>, Databas</td>
         <td>2</td>
-        <td></td>
+        <td>2</td>
     <tr>
     </tr>
         <td><a href="../dokumentation/Krav/AF4-Skapa-quiz.md">AF4 - Skapa quiz</a></td>
@@ -59,7 +59,7 @@ projektredovisning.
     <tr>
         <td><b>Summa</b></td>
         <td><b>32</b></td>
-        <td><b>0</b></td>
+        <td><b>4</b></td>
     </tr>
     <tr>
         <td colspan="2"><b>Total arbetstid före iterationen</b></td>
@@ -67,6 +67,6 @@ projektredovisning.
     </tr>
     <tr>
         <td colspan="2"><b>Total arbetstid efter iterationen</b></td>
-        <td><b>45</b></td>
+        <td><b>49</b></td>
     </tr>
 </table>

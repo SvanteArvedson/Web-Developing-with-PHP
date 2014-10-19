@@ -64,6 +64,37 @@ p.error-message, p.success-message {
 	text-align: center;
 }
 
+.quiz-panel {
+	padding: 0.5em;
+	margin-bottom: 1em;
+	background-color: rgba(242, 242, 242, 0.5);
+	-webkit-border-radius: 3px;
+  	-moz-border-radius: 3px;
+  	border-radius: 3px;
+}
+
+.quiz-question {
+	margin: 0;
+	font-size: 0.875rem;
+	font-style: italic;
+	color: #4d4d4d;
+	background-color: transparent;
+}
+
+li.quiz-option {
+	padding-bottom: 0;
+	margin: 0;
+	background-color: transparent;
+}
+
+li.quiz-option label {
+	background-color: inherit;
+}
+
+li.quiz-option label input {
+	margin: 0;
+}
+
 input.error, textarea.error {
 	margin: 0px 0px 1rem;
 	background-color: #fff0f0;
