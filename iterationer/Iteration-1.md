@@ -1,8 +1,8 @@
 # Iteration 1
-Under iteration ett ska login modulen skapas. Detta inneb�r att 
-huvudarkitekturen ska p� plats, inklusive databas och 
+Under iteration ett ska login modulen skapas. Detta innebär att 
+huvudarkitekturen ska på plats, inklusive databas och 
 databasuppkoppling samt klientsidekod som CSS och JavaScript.    
-Om tid finns ska �ven funktioner f�r att registrera en student p� 
+Om tid finns ska även funktioner för att registrera en student på 
 en kurs implementeras.
 
 ## Planering
@@ -60,6 +60,14 @@ en kurs implementeras.
     <tr>
         <td><b>Summa</b></td>
         <td><b>21</b></td>
+        <td><b>22</b></td>
+    </tr>
+    <tr>
+        <td colspan="2"><b>Total arbetstid före iterationen</b></td>
+        <td><b>0</b></td>
+    </tr>
+    <tr>
+        <td colspan="2"><b>Total arbetstid efter iterationen</b></td>
         <td><b>22</b></td>
     </tr>
 </table>

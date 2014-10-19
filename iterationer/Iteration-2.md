@@ -3,7 +3,7 @@ Under Iteration 2 skall funktioner för att registrera en student på en kurs
 implementeras, detta för att den implementationen kräver att mycket av 
 arkitekturen är på plats och definerad (bl.a. databasen). Efter det börjar 
 jag arbeta med att implementera funktioner för att göra quiz. Under iterationen 
-ska applikationen för test publiseras på produktionsservern.
+ska applikationen för test publiceras på produktionsservern.
 
 ## Planering
 <table>
@@ -43,7 +43,7 @@ ska applikationen för test publiseras på produktionsservern.
         <td></td>
     <tr>
     </tr>
-        <td>Publisera applikationen på produktionsservern</td>
+        <td>Publicera applikationen på produktionsservern</td>
         <td>2</td>
         <td>2</td>
     <tr>
@@ -51,5 +51,13 @@ ska applikationen för test publiseras på produktionsservern.
         <td><b>Summa</b></td>
         <td><b>20</b></td>
         <td><b>23</b></td>
+    </tr>
+    <tr>
+        <td colspan="2"><b>Total arbetstid före iterationen</b></td>
+        <td><b>22</b></td>
+    </tr>
+    <tr>
+        <td colspan="2"><b>Total arbetstid efter iterationen</b></td>
+        <td><b>45</b></td>
     </tr>
 </table>
