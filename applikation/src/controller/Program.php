@@ -6,6 +6,7 @@ require_once dirname(__FILE__) . '/../view/Page.php';
 require_once dirname(__FILE__) . '/../view/Action.php';
 require_once dirname(__FILE__) . '/../controller/AuthenticationHandler.php';
 require_once dirname(__FILE__) . '/../controller/CourseHandler.php';
+require_once dirname(__FILE__) . '/../controller/QuizHandler.php';
 
 /**
  * Master controller for the application
@@ -39,6 +40,10 @@ class Program {
             case \view\Action::EDIT_COURSE :
                 $handler = new CourseHandler(\view\Action::EDIT_COURSE);
                 $handler -> editCourse();
+                break;
+            case \view\Action::DO_QUIZ :
+                $handler = new QuizHandler();
+                $handler -> doQuiz();
                 break;
             default :
                 //TODO: Custom error page here (404)
