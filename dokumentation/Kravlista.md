@@ -30,6 +30,11 @@
         <td>AF2 Status=Klar, AF3 Status=Klar, AF8 Status=Klar, AF9 Status=Klar, AF12 Status=Klar, AF13 Status=Påbörjad, AF14 Status=Påbörjad</td>
         <td>Svante Arvedson</td>
     </tr>
+    <tr>
+        <td>21/10-2014</td>
+        <td>AF14 Status=Klar, AF13 Status=Påbörjad</td>
+        <td>Svante Arvedson</td>
+    </tr>
 </table>
 
 ##Funktionella krav
@@ -44,14 +49,6 @@
     </tr>
     <tr>
         <td><a href="Krav/AF13-Visa-statistik.md">AF13 - Visa statistik</a></td>
-        <td>Svante Arvedson</td>
-        <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
-        <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a></td>
-        <td>Påbörjad</td>
-        <td>Hög</td>
-    </tr>
-    <tr>
-        <td><a href="Krav/AF14-Gor-quiz.md">AF14 - Gör quiz</a></td>
         <td>Svante Arvedson</td>
         <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
         <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a></td>
@@ -201,6 +198,13 @@
         <td>Svante Arvedson</td>
         <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
         <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a>, <a href="Vision.md#baskrav">BF3</a></td>
+        <td>Klar</td>
+    </tr>
+    <tr>
+        <td><a href="Krav/AF14-Gor-quiz.md">AF14 - Gör quiz</a></td>
+        <td>Svante Arvedson</td>
+        <td><a href="Krav/DF1-Logga-in.md">DF1 Logga in</a></td>
+        <td><a href="Vision.md#baskrav">BF1</a>, <a href="Vision.md#baskrav">BF2</a></td>
         <td>Klar</td>
     </tr>
 </table>

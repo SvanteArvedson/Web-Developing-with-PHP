@@ -14,7 +14,7 @@ projektredovisning.
     </tr>
         <td><a href="../dokumentation/Krav/AF14-Gor-quiz.md">AF14 - Gör quiz</a>, Serverkod</td>
         <td>8</td>
-        <td>5</td>
+        <td>8</td>
     <tr>
     </tr>
         <td><a href="../dokumentation/Krav/AF14-Gor-quiz.md">AF14 - Gör quiz</a>, CSS</td>
@@ -59,7 +59,7 @@ projektredovisning.
     <tr>
         <td><b>Summa</b></td>
         <td><b>32</b></td>
-        <td><b>9</b></td>
+        <td><b>12</b></td>
     </tr>
     <tr>
         <td colspan="2"><b>Total arbetstid före iterationen</b></td>
@@ -67,6 +67,6 @@ projektredovisning.
     </tr>
     <tr>
         <td colspan="2"><b>Total arbetstid efter iterationen</b></td>
-        <td><b>54</b></td>
+        <td><b>57</b></td>
     </tr>
 </table>

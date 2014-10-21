@@ -44,6 +44,16 @@ class Question {
         return $allAnswers;
     }
     
+    public function getAnswerText($answerId) {
+        foreach ($this -> getAllAnswers() as $answer) {
+            if ($answer -> getId() == $answerId) {
+                return $answer -> getText();
+            }
+        }
+        
+        return null;
+    }
+    
     public function getCorrectAnswer() {
         return $this -> correctAnswer;
     }

@@ -72,6 +72,7 @@ class QuizRepository extends Repository {
                 $courseId = intval($result[self::$course]);
                 $title = $result[self::$title];
                 $questions = $questionRepo -> getQuestionsByQuizId($id);
+                shuffle($questions);
                 
                 return new Quiz($id, $courseId, $title, $questions);
             } else {

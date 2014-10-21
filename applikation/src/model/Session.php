@@ -9,6 +9,8 @@ class Session {
 
     public static $keyUser = 'user';
     private static $keySignature = 'signature';
+    public static $keyQuiz = 'quiz';
+    public static $keyAnswers = 'answers';
 
     public function __construct($signature) {
         if (!$signature) {
@@ -42,6 +44,12 @@ class Session {
     
     public function getValue($key) {
         return isset($_SESSION[$key]) ? $_SESSION[$key] : null;
+    }
+    
+    public function getValueOnce($key) {
+        $value = isset($_SESSION[$key]) ? $_SESSION[$key] : null;
+        unset($_SESSION[$key]);
+        return $value;
     }
     
     public function save($key, $value) {

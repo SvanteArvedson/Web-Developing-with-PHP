@@ -44,4 +44,23 @@ class Quiz {
     public function getQuestions() {
         return $this -> questions;
     }
+
+    public function getMaxScore() {
+        return count($this -> questions);
+    }
+
+    public function checkAnswers(array $answers) {
+        if (count($answers) != count($this->questions)) {
+            throw new \InvalidArgumentException('Number of elements in $answers must be the same as number of questions in the quiz', ErrorCode::ANSWERS_MISSING);
+        }
+        
+        $score = 0;
+        foreach ($this -> questions AS $question) {
+            if ($question -> getCorrectAnswer() -> getId() == $answers[$question->getId()]) {
+                $score += 1;
+            }
+        }
+        
+        return $score;
+    }
 }

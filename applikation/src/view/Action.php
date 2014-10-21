@@ -10,4 +10,6 @@ class Action {
     const SHOW_COURSE = 'showCourse';
     const EDIT_COURSE = 'editCourse';
     const DO_QUIZ = 'doQuiz';
+    const ANSWER_QUIZ = 'answerQuiz';
+    const SHOW_QUIZ_RESULT = 'showResult';
 }

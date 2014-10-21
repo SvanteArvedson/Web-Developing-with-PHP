@@ -55,6 +55,36 @@ label,
 	list-style-position: outside;
 }
 
+p.result-summary {
+	font-size: 1.225rem;
+}
+
+ul.quiz-results li.correct-answer {
+	margin-bottom: 0.5em;
+	padding: 0.5em;
+	background-color: #5da423;
+	background-color: #4a831c;
+	-webkit-border-radius: 3px;
+  	-moz-border-radius: 3px;
+  	border-radius: 3px;
+}
+
+ul.quiz-results li.wrong-answer {
+	margin-bottom: 0.5em;
+	padding: 0.5em;
+	background-color: #C60F13;
+	background-color: #9e0c0f;
+	-webkit-border-radius: 3px;
+  	-moz-border-radius: 3px;
+  	border-radius: 3px;
+}
+
+ul.quiz-results li.correct-answer p, ul.quiz-results li.wrong-answer p {
+	margin: 0;
+	color: #FAFAFA;
+	font-size: 0.875rem;
+}
+
 p.error-message, p.success-message {
 	margin: 0;
 	font-size: 0.75rem;

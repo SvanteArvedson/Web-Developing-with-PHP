@@ -45,6 +45,14 @@ class Program {
                 $handler = new QuizHandler();
                 $handler -> doQuiz();
                 break;
+            case \view\Action::ANSWER_QUIZ :
+                $handler = new QuizHandler();
+                $handler -> answerQuiz();
+                break;
+            case \view\Action::SHOW_QUIZ_RESULT :
+                $handler = new QuizHandler();
+                $handler -> presentQuizResult();
+                break;
             default :
                 //TODO: Custom error page here (404)
                 echo "Fel URL, ingen action matchas";

@@ -15,4 +15,6 @@ class ErrorCode {
     const NO_PRIVILEGES = 5;
     const QUIZ_DONT_EXISTS = 6;
     const COURSE_DONT_EXISTS = 7;
+    const ANSWERS_MISSING = 8;
+    const ACTION_IMPOSSIBLE = 9;
 }

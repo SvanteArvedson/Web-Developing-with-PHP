@@ -26,4 +26,14 @@ class Navigation {
         header('Location: ' . $_SERVER['PHP_SELF'] . "?" . Action::KEY . "=" . Action::EDIT_COURSE . "&" . CoursePage::$keyCourseId . "=" . $courseId);
         die();
     }
+
+    public function redirectToShowQuizResult() {
+        header('Location: ' . $_SERVER['PHP_SELF'] . "?" . Action::KEY . "=" . Action::SHOW_QUIZ_RESULT);
+        die();
+    }
+
+    public function redirectToDoQuiz($quizId) {
+        header('Location: ' . $_SERVER['PHP_SELF'] . "?" . Action::KEY . "=" . Action::DO_QUIZ . "&" . QuizPage::$keyQuizId . "=" . $quizId);
+        die();
+    }
 }
