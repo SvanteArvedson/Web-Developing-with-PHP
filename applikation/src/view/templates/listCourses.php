@@ -1,3 +1,5 @@
+<?php namespace view; ?>
+
 <?php include (dirname(__FILE__) . '/slots/head.php'); ?>
 
     <div class="off-canvas-wrap" data-offcanvas>
@@ -27,14 +29,19 @@
                                 <div class="text-centered panel radius small-12 columns">
                                     <h1><?php if ($user -> getPrivileges() !== \model\Privileges::ADMIN) { echo "Mina kurser"; } else { echo "Alla kurser"; } ?></h1>
                                 </div>
-                                <div class="small-12 columns">
-                                    <ul class="side-nav presentation-list">
-                                        <?php foreach ($courses as $course): ?>
-                                            <li>
-                                                <a class="text-centered" href="<?php echo $_SERVER['PHP_SELF'].'?'.\view\Action::KEY.'='.\view\Action::SHOW_COURSE."&".\view\CoursePage::$keyCourseId."=".$course->getId(); ?>"><?php echo $course->getName(); ?></a>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
+                                <div class="row">
+                                    <div class="small-12 columns">
+                                        
+                                        <?php if($errorMessage !== null) { include(dirname(__FILE__) . '/slots/error.php'); } ?>
+                                        
+                                        <ul class="side-nav presentation-list">
+                                            <?php foreach ($courses as $course): ?>
+                                                <li>
+                                                    <a class="text-centered" href="<?php echo $_SERVER['PHP_SELF'].'?'.\view\Action::KEY.'='.\view\Action::SHOW_COURSE."&amp;".\view\CoursePage::$keyCourseId."=".$course->getId(); ?>"><?php echo $course->getName(); ?></a>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>

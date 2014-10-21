@@ -1,3 +1,5 @@
+<?php namespace view; ?>
+
 <!DOCTYPE html>
 <html lang='sv'>
     <head>

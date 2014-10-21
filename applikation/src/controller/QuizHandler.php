@@ -39,7 +39,7 @@ class QuizHandler {
                         
                         $allowed = false;
                         foreach ($usersCourses as $course) {
-                            if ($course -> getId() == $quiz -> getCourse()) {
+                            if ($course -> getId() == $quiz -> getCourseId()) {
                                 $allowed = true;
                             }
                         }
@@ -47,11 +47,12 @@ class QuizHandler {
                         if ($allowed) {
                             $this -> quizPage -> echoDoQuiz($user, $quiz);
                         } else {
-                            //TODO: Add error message
+                            $this -> quizPage -> createErrorMessage(\model\ErrorCode::NO_PRIVILEGES);
                             $this -> navigation -> redirectToShowCourses();
                         }
                     }                
                 } else {
+                    $this -> quizPage -> createErrorMessage(\model\ErrorCode::QUIZ_DONT_EXISTS);
                     $this -> navigation -> redirectToShowCourses();
                 }
             }

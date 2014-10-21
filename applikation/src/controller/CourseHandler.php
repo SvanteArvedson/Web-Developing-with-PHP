@@ -28,17 +28,17 @@ class CourseHandler {
         $userRepo = new \model\UserRepository();
         $param = $this -> coursePage -> getUrlParameters($this -> action);
         $course = $courseRepo -> getCourseById($param[\view\CoursePage::$keyCourseId]);
-        
+
         if ($this -> session -> isUserAuthenticated() && $user -> getPrivileges() !== \model\Privileges::STUDENT) {
-            
+
             if ($course) {
                 // If POST request
                 if ($this -> coursePage -> isPostback()) {
                     $inputs = $this -> coursePage -> getInputs();
-                    
+
                     $teachers = isset($inputs[\view\CoursePage::$nameArrayTeachers]) ? $userRepo -> getUsersByIds($inputs[\view\CoursePage::$nameArrayTeachers]) : array();
                     $students = isset($inputs[\view\CoursePage::$nameArrayStudents]) ? $userRepo -> getUsersByIds($inputs[\view\CoursePage::$nameArrayStudents]) : array();
-                    
+
                     $course -> setName($inputs[\view\CoursePage::$nameCourseName]);
                     $course -> setDescription($inputs[\view\CoursePage::$nameDescription]);
                     $course -> setTeachers($teachers);
@@ -48,15 +48,15 @@ class CourseHandler {
                         if ($inputs[\view\CoursePage::$nameInfoChange] === "true") {
                             $courseRepo -> updateCourseInfo($course);
                         }
-                        
+
                         if ($inputs[\view\CoursePage::$nameTeachersChange] === "true" && $user -> getPrivileges() === \model\Privileges::ADMIN) {
                             $userRepo -> updateTeachersOnCourse($course -> getId(), $course -> getTeachers());
                         }
-                        
+
                         if ($inputs[\view\CoursePage::$nameStudentsChange] === "true") {
                             $userRepo -> updateStudentsOnCourse($course -> getId(), $course -> getStudents());
                         }
-                        
+
                         $this -> coursePage -> createSuccessMessage();
                         $this -> navigation -> redirectToShowCourse($course -> getId());
 
@@ -73,12 +73,12 @@ class CourseHandler {
                             die();
                         }
                     }
-                // If GET request    
+                    // If GET request
                 } else {
                     $allTeachers = $userRepo -> getAllTeachers();
                     $allStudents = $userRepo -> getAllStudents();
                     $this -> coursePage -> echoEditCourse($user, $course, $allTeachers, $allStudents);
-                }   
+                }
             } else {
                 $this -> navigation -> redirectToShowCourses();
             }
@@ -96,44 +96,59 @@ class CourseHandler {
         $repo = new \model\CourseRepository();
 
         if ($this -> session -> isUserAuthenticated()) {
-            
+
             if ($user -> getPrivileges() === \model\Privileges::ADMIN) {
                 $courses = $repo -> getAllCourses();
             } else {
                 $courses = $repo -> getCoursesWithParticipationBy($user -> getId());
             }
-            
+
             $this -> coursePage -> echoListCourses($user, $courses);
-            
+
         } else {
             $this -> navigation -> redirectToFrontPage();
         }
     }
 
     public function showCourse() {
-        $user = $this -> session -> getValue(\model\Session::$keyUser);
-        $courseRepo = new \model\CourseRepository();
-        $userRepo = new \model\UserRepository();
-
         if ($this -> session -> isUserAuthenticated()) {
-            $param = $this -> coursePage -> getUrlParameters($this -> action);
 
-            if ($user -> getPrivileges() === \model\Privileges::ADMIN) {
-                $course = $courseRepo -> getCourseById($param[\view\CoursePage::$keyCourseId]);
-            } else {
-                $course = $courseRepo -> getCourseWithParticipationBy($user -> getId(), $param[\view\CoursePage::$keyCourseId]);
-            }
+            $user = $this -> session -> getValue(\model\Session::$keyUser);
+
+            $courseRepo = new \model\CourseRepository();
+            $userRepo = new \model\UserRepository();
+
+            $param = $this -> coursePage -> getUrlParameters($this -> action);
+            $course = $course = $courseRepo -> getCourseById($param[\view\CoursePage::$keyCourseId]);
 
             if ($course) {
-                $this -> coursePage -> echoCourse($user, $course);
+                if ($user -> getPrivileges() === \model\Privileges::ADMIN) {
+                    
+                    $this -> coursePage -> echoCourse($user, $course);
+                
+                } else {
+                    $usersCourses = $courseRepo -> getCoursesWithParticipationBy($user -> getId());
 
+                    $allowed = false;
+                    foreach ($usersCourses as $userCourse) {
+                        if ($userCourse -> getId() == $course -> getId()) {
+                            $allowed = true;
+                        }
+                    }
+
+                    if ($allowed) {
+                        $this -> coursePage -> echoCourse($user, $course);
+                    } else {
+                        $this -> coursePage -> createErrorMessage(\model\ErrorCode::NO_PRIVILEGES);
+                        $this -> navigation -> redirectToShowCourses();
+                    }
+                }
             } else {
-                //TODO: Show custom error page here
+                $this -> coursePage -> createErrorMessage(\model\ErrorCode::COURSE_DONT_EXISTS);
                 $this -> navigation -> redirectToShowCourses();
             }
-
         } else {
-            $this -> navigation -> redirectToShowCourses();
+            $this -> navigation -> redirectFrontPage();
         }
     }
 

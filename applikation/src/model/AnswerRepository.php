@@ -25,13 +25,8 @@ class AnswerRepository extends Repository {
             $query = $connection -> prepare($sql);
             $query -> execute($param);
 
-            $result = $query -> fetch();
-
-            if ($result) {
-                return new Answer(intval($result[self::$id]), $result[self::$text]);
-            } else {
-                return null;
-            }
+            return $this -> makeToAnswerObject($query -> fetch());
+            
         } catch (\Exception $e) {
             throw new \Exception($e -> getMessage(), -1);
         }
@@ -64,12 +59,18 @@ class AnswerRepository extends Repository {
         
         if ($results != null) {
             $ret = array();
-                       
             foreach ($results as $result) {
-                $ret[] = new Answer(intval($result[self::$id]), $result[self::$text]);
+                $ret[] = $this -> makeToAnswerObject($result);
             }
         }
-        
         return $ret;
+    }
+    
+    private function makeToAnswerObject($result) {
+        try {
+            return new Answer(intval($result[self::$id]), $result[self::$text]);
+        } catch (\Exception $e) {
+            return null;
+        }
     }
 }

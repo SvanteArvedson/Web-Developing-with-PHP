@@ -31,9 +31,7 @@ class QuestionRepository extends Repository {
             $query = $connection -> prepare($sql);
             $query -> execute($param);
 
-            $results = $query -> fetchAll();
-
-            return $this -> makeQuestionObjects($results);
+            return $this -> makeQuestionObjects($query -> fetchAll());
 
         } catch (\Exception $e) {
             throw new \Exception($e -> getMessage(), -1);

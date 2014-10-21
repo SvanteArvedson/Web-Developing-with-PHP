@@ -9,13 +9,15 @@ class Course implements \Serializable {
     private $id;
     private $name;
     private $description;
+    private $quiz;
     private $teachers;
     private $students;
     
-    public function __construct($id, $name, $description, array $teachers, array $students) {
+    public function __construct($id, $name, $description, array $quiz, array $teachers, array $students) {
         $this -> id =  $id;
         $this -> name = $name;
         $this -> description = $description;
+        $this -> quiz = $quiz;
         $this -> teachers = $teachers;
         $this -> students = $students;
     }
@@ -44,6 +46,10 @@ class Course implements \Serializable {
         $this -> description = $description;
     }
 
+    public function getQuiz() {
+        return $this -> quiz;
+    }
+
     public function getTeachers() {
         return $this -> teachers;
     }
@@ -61,7 +67,7 @@ class Course implements \Serializable {
     }
 
     public function serialize() {
-        $courseArray = array($this->getId(), $this->getName(), $this->getDescription(), $this->getTeachers(), $this->getStudents());
+        $courseArray = array($this -> getId(), $this -> getName(), $this -> getDescription(), $this -> getQuiz(), $this -> getTeachers(), $this -> getStudents());
         return serialize($courseArray);
     }
     
@@ -71,7 +77,8 @@ class Course implements \Serializable {
         $this -> id = $courseArray[0];
         $this -> name = $courseArray[1];
         $this -> description = $courseArray[2];
-        $this -> teachers = $courseArray[3];
-        $this -> students = $courseArray[4];
+        $this -> quiz = $courseArray[3];
+        $this -> teachers = $courseArray[4];
+        $this -> students = $courseArray[5];
     }
 }

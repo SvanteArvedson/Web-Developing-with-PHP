@@ -4,6 +4,7 @@ namespace model;
 
 require_once dirname(__FILE__) . '/Course.php';
 require_once dirname(__FILE__) . '/UserRepository.php';
+require_once dirname(__FILE__) . '/QuizRepository.php';
 
 class CourseRepository extends Repository {
 
@@ -53,18 +54,8 @@ class CourseRepository extends Repository {
 
             $query = $connection -> prepare($sql);
             $query -> execute($param);
-            
-            $result = $query -> fetch();
-            
-            $ret = null;
-            if ($result) {
-                
-                $teachers = $userRepo -> getTeachersOnCourse($result[self::$id]);
-                $students = $userRepo -> getStudentsOnCourse($result[self::$id]);
-                
-                $ret = new Course($result[self::$id], $result[self::$name], $result[self::$description], $teachers, $students);
-            }
-            return $ret;
+
+            return $this -> makeToCourseObject($query -> fetch());
 
         } catch (\Exception $e) {
             throw new \Exception($e -> getMessage(), -1);
@@ -100,17 +91,7 @@ class CourseRepository extends Repository {
             $query = $connection -> prepare($sql);
             $query -> execute($param);
 
-            $result = $query -> fetch();
-            
-            $ret = null;
-            if ($result) {
-
-                $teachers = $userRepo -> getTeachersOnCourse($result[self::$id]);
-                $students = $userRepo -> getStudentsOnCourse($result[self::$id]);
-
-                $ret = new Course($result[self::$id], $result[self::$name], $result[self::$description], $teachers, $students);
-            }
-            return $ret;
+            return $this -> makeToCourseObject($query -> fetch());
 
         } catch (\Exception $e) {
             throw new \Exception($e -> getMessage(), -1);
@@ -142,24 +123,42 @@ class CourseRepository extends Repository {
     }
 
     private function makeToCourseObjects($results) {
-        $userRepo = new UserRepository();
-
-        $ret = null;
-        if ($results != null) {
-            $ret = array();
-
-            foreach ($results as $result) {
+        try {
+            $ret = null;
+            if ($results) {
+                $ret = array();
+                foreach ($results as $result) {
+                    $ret[] = $this -> makeToCourseObject($result);
+                }
+            }
+            
+            return $ret;
+        } catch (\Exception $e) {
+            throw new \Exception($e -> getMessage(), -1);
+        }
+    }
+    
+    private function makeToCourseObject($result) {
+        try {
+            if ($result) {
+                $userRepo = new UserRepository();
+                $quizRepo = new QuizRepository();
+                
+                $quiz = $quizRepo -> getQuizOnCourse($result[self::$id]);
                 $teachers = $userRepo -> getTeachersOnCourse($result[self::$id]);
-                $students = $userRepo -> getStudentsOnCourse($result[self::$id]); 
-
+                $students = $userRepo -> getStudentsOnCourse($result[self::$id]);
+    
+                $quiz = $quiz != null ? $quiz : array();
                 $teachers = $teachers != null ? $teachers : array();
                 $students = $students != null ? $students : array();
-
-                $ret[] = new Course($result[self::$id], $result[self::$name], $result[self::$description], $teachers, $students);
+    
+                return new Course($result[self::$id], $result[self::$name], $result[self::$description], $quiz, $teachers, $students);
+            } else {
+                return null;;
             }
+        } catch (\Exception $e) {
+            throw new \Exception($e -> getMessage(), -1);
         }
-        
-        return $ret;
     }
 
 }

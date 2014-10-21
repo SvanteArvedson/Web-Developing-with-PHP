@@ -70,14 +70,20 @@
 	<tr>
 		<td>AF8.11</td>
 		<td>Uppdatera kursens lärare</td>
-		<td>Logga in, begär url'en index.php?action=editCourse&course=5, i listan av kurslärare och klicka sedan på "Spara ändringar"</td>
+		<td>Logga in, begär url'en index.php?action=editCourse&course=5, ändra i listan av kurslärare och klicka sedan på "Spara ändringar"</td>
 		<td>Redirectad till index.php?action=showCourse&course=5, rättmeddelande "Kursen uppdaterades", kursens lärare är ändrade</td>
 	</tr>
 	<tr>
 		<td>AF2.12</td>
 		<td>Uppdatera kursens studenter</td>
-		<td>Logga in, begär url'en index.php?action=editCourse&course=5, i listan av studenter och klicka sedan på "Spara ändringar"</td>
+		<td>Logga in, begär url'en index.php?action=editCourse&course=5, ändra i listan av studenter och klicka sedan på "Spara ändringar"</td>
 		<td>Redirectad till index.php?action=showCourse&course=5, rättmeddelande "Kursen uppdaterades", kursens studenter är ändrade</td>
+	</tr>
+	<tr>
+		<td>AF2.13</td>
+		<td>Se en kurs som inte finns</td>
+		<td>Logga in, begär url'en index.php?action=showCourse&course=5000</td>
+		<td>Redirectad till index.php?action=showCourses, felmeddelande: "Den begärda kursen finns inte"</td>
 	</tr>
 
 </table>

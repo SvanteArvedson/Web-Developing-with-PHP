@@ -44,6 +44,12 @@ class CoursePage extends Page {
             case \model\ErrorCode::COURSE_DESCRIPTION_EMPTY :
                 $errorMessage = "Beskrivning saknas";
                 break;
+            case \model\ErrorCode::NO_PRIVILEGES :
+                $errorMessage = "Du har inte behörgihet att se den begärda sidan";
+                break;
+            case \model\ErrorCode::COURSE_DONT_EXISTS :
+                $errorMessage = "Den efterfrågade kursen existerar inte";
+                break;
         }
 
         $this -> addErrorMessage($errorMessage);
@@ -66,12 +72,14 @@ class CoursePage extends Page {
             $title = "QuizApp - Alla kurser";
         }
         
+        $errorMessage = $this -> cookie -> cookieIsset(self::$keyErrorMessage) ? $this -> cookie -> loadOnce(self::$keyErrorMessage) : null;
+        
         include (dirname(__FILE__) . '/templates/listCourses.php');
     }
     
     public function echoCourse(\model\User $user, \model\Course $course) {
         $title = "QuizApp - " . $course->getName();
-        $successMessage = $errorMessage = $this -> cookie -> cookieIsset(self::$keySuccessMessage) ? $this -> cookie -> loadOnce(self::$keySuccessMessage) : null;
+        $successMessage = $this -> cookie -> cookieIsset(self::$keySuccessMessage) ? $this -> cookie -> loadOnce(self::$keySuccessMessage) : null;
         include (dirname(__FILE__) . '/templates/course.php');
     }
 

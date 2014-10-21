@@ -1,3 +1,5 @@
+<?php namespace view; ?>
+
 <ul class="side-nav">
     <li>
         <a class="text-centered" href="<?php echo $_SERVER['PHP_SELF']; ?>">Startsidan</a>

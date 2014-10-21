@@ -39,8 +39,7 @@ class Question {
     
     public function getAllAnswers() {
         $allAnswers = $this -> incorrectAnswers;
-        $allAnswers[] = $correctAnswer;
-        shuffle($allAnswers);
+        $allAnswers[] = $this -> correctAnswer;
 
         return $allAnswers;
     }

@@ -1,3 +1,5 @@
+<?php namespace view; ?>
+
 <?php include(dirname(__FILE__) . '/slots/head.php'); ?>
     
     <div class='container'>
