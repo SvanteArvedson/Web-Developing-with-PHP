@@ -2,37 +2,31 @@
 
 namespace controller;
 
+require_once dirname(__FILE__) . '/../controller/Handler.php';
 require_once dirname(__FILE__) . '/../view/FrontPage.php';
-require_once dirname(__FILE__) . '/../view/Navigation.php';
-require_once dirname(__FILE__) . '/../model/Session.php';
 require_once dirname(__FILE__) . '/../model/UserFactory.php';
 require_once dirname(__FILE__) . '/../model/User.php';
 
 /**
  * Controller object for login and logout
- * @author Svante Arvedson
  */
-class AuthenticationHandler {
-
+class AuthenticationHandler extends Handler {
+    
+    /**
+     * @var $frontPage \view\FrontPage
+     */
     private $frontPage;
-    private $navigation;
-    private $session;
 
     public function __construct() {
-        try {
-            $this -> frontPage = new \view\FrontPage();
-            $this -> navigation = new \view\Navigation();
-            $this -> session = new \model\Session($this->frontPage->getSignature());
-        } catch (\Exception $e) {
-            //TODO: show a custom error page here
-            var_dump($e);
-            die();
-        };
+        $this -> frontPage = new \view\FrontPage();
+        parent::__construct($this -> frontPage -> getSignature());
     }
 
+    /**
+     * Called when URL is index.php?action=login
+     */
     public function doLogin() {
-        $uf = new \model\UserFactory();
-        
+        $uf = new \model\UserFactory();        
         if ($this -> frontPage -> isPostback() && !$this -> session -> isUserAuthenticated()) {
             try {
                 $inputs = $this -> frontPage -> getInputs();
@@ -52,13 +46,19 @@ class AuthenticationHandler {
         $this -> navigation -> redirectToFrontPage();
     }
 
+    /**
+     * Called when URL is index.php?action=logout
+     */
     public function doLogout() {
         if ($this -> session -> isUserAuthenticated()) {
             $this -> session -> logoutUser();
         }
         $this -> navigation -> redirectToFrontPage();
     }
-
+    
+    /**
+     * Called when URL is index.php
+     */
     public function createFrontPage() {
         if ($this -> frontPage -> isPostback()) {
             $this -> navigation -> redirectToFrontPage();

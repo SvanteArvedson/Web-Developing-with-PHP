@@ -2,6 +2,9 @@
 
 namespace view;
 
+/**
+ * "Enum" for action strings
+ */
 class Action {
     const KEY = 'action';
     const LOGIN = 'login';
@@ -12,4 +15,5 @@ class Action {
     const DO_QUIZ = 'doQuiz';
     const ANSWER_QUIZ = 'answerQuiz';
     const SHOW_QUIZ_RESULT = 'showResult';
+    const STATISTICS = 'showStatistics';
 }

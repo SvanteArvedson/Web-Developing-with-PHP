@@ -7,10 +7,10 @@ require_once dirname(__FILE__) . '/../view/Action.php';
 require_once dirname(__FILE__) . '/../controller/AuthenticationHandler.php';
 require_once dirname(__FILE__) . '/../controller/CourseHandler.php';
 require_once dirname(__FILE__) . '/../controller/QuizHandler.php';
+require_once dirname(__FILE__) . '/../controller/StatisticsHandler.php';
 
 /**
  * Master controller for the application
- * @author Svante Arvedson
  */
 class Program {
     public function run() {
@@ -52,6 +52,10 @@ class Program {
             case \view\Action::SHOW_QUIZ_RESULT :
                 $handler = new QuizHandler();
                 $handler -> presentQuizResult();
+                break;
+            case \view\Action::STATISTICS :
+                $handler = new StatisticsHandler();
+                $handler -> presentStatistics();
                 break;
             default :
                 //TODO: Custom error page here (404)

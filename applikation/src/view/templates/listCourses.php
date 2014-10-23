@@ -27,7 +27,16 @@
                         <div class="small-12 large-9 columns">
                             <div class="row">
                                 <div class="text-centered panel radius small-12 columns">
-                                    <h1><?php if ($user -> getPrivileges() !== \model\Privileges::ADMIN) { echo "Mina kurser"; } else { echo "Alla kurser"; } ?></h1>
+                                    <h1>
+                                        <?php if ($user -> getPrivileges() == \model\Privileges::ADMIN) {
+                                             echo "Alla kurser"; 
+                                            } else if ($user -> getPrivileges() == \model\Privileges::TEACHER) {
+                                                 echo "Kurser"; 
+                                            } else {
+                                                echo "Mina kurser";
+                                            }
+                                        ?>
+                                    </h1>
                                 </div>
                                 <div class="row">
                                     <div class="small-12 columns">

@@ -5,22 +5,66 @@ namespace view;
 require_once dirname(__FILE__) . '/Page.php';
 require_once dirname(__FILE__) . '/../model/Privileges.php';
 
+/**
+ * Shows and creates HTML pages for course functions
+ */
 class CoursePage extends Page {
     
-    private static $keyCourse = 'course';
-    
+    /**
+     * @var $keyCourseId String Key for saving course id in URL
+     */
     public static $keyCourseId = 'course';
     
+    /**
+     * @var $nameInfoChange String Name attribute for form element
+     */
     public static $nameInfoChange = 'changeInfo';
+    
+    /**
+     * @var $nameTeachersChange String Name attribute for form element
+     */
     public static $nameTeachersChange = 'changeTeachers';
+    
+    /**
+     * @var $nameStudentsChange String Name attribute for form element
+     */
     public static $nameStudentsChange = 'changeStudents';
+    
+    /**
+     * @var $nameCourseName String Name attribute for form element
+     */
     public static $nameCourseName = 'courseName';
+    
+    /**
+     * @var $nameDescription String Name attribute for form element
+     */
     public static $nameDescription = 'courseDescription';
+    
+    /**
+     * @var $nameTeachers String Name attribute for form element
+     */
     public static $nameTeachers = 'courseTeachers[]';
+    
+    /**
+     * @var $nameStudents String Name attribute for form element
+     */
     public static $nameStudents = 'courseStudents[]';
+    
+    /**
+     * @var $nameArrayTeachers String Name attribute for form element
+     */
     public static $nameArrayTeachers = 'courseTeachers';
+    
+    /**
+     * @var $nameArrayStudents String Name attribute for form element
+     */
     public static $nameArrayStudents = 'courseStudents';
     
+    /**
+     * @param $action String Action in action
+     * 
+     * @return String Content in URL parameters
+     */
     public function getUrlParameters($action) {
         switch ($action) {
             case Action::SHOW_COURSE :
@@ -31,11 +75,12 @@ class CoursePage extends Page {
                 break;
         }
     }
-
-    public function getInputs() {
-        return $_POST;
-    }
     
+    /**
+     * Creates an error message and saves it in a cookie
+     * 
+     * @param $errorCode integer
+     */
     public function createErrorMessage($errorCode) {
         switch ($errorCode) {
             case \model\ErrorCode::COURSE_NAME_EMPTY :
@@ -55,19 +100,24 @@ class CoursePage extends Page {
         $this -> addErrorMessage($errorMessage);
     }
     
+    /**
+     * Creates a success message and saves it in a cookie
+     */
     public function createSuccessMessage() {
         $this -> addSuccessMessage("Kursen uppdaterades");
     }
-    
-    public function saveCourse($course) {
-        $serializedCourse = serialize($course);
-        $serializedCourse = utf8_encode($serializedCourse);
-        $this->cookie->save(self::$keyCourse, $serializedCourse);
-    }
-    
+   
+    /**
+     * Creates HTML response for index.php?action=showCourses
+     * 
+     * @param $user \model\User
+     * @param $courses An array with \model\Course objects
+     */
     public function echoListCourses(\model\User $user, $courses) {
-        if ($user -> getPrivileges() !== \model\Privileges::ADMIN) {
+        if ($user -> getPrivileges() == \model\Privileges::STUDENT) {
             $title = "QuizApp - Mina kurser";
+        } else if ($user -> getPrivileges() == \model\Privileges::TEACHER) {
+            $title = "QuizApp - Kurser";
         } else {
             $title = "QuizApp - Alla kurser";
         }
@@ -77,25 +127,29 @@ class CoursePage extends Page {
         include (dirname(__FILE__) . '/templates/listCourses.php');
     }
     
+    /**
+     * Creates HTML response for index.php?action=showCourse&course=__
+     * 
+     * @param $user \model\User
+     * @param $course \model\Course
+     */
     public function echoCourse(\model\User $user, \model\Course $course) {
         $title = "QuizApp - " . $course->getName();
         $successMessage = $this -> cookie -> cookieIsset(self::$keySuccessMessage) ? $this -> cookie -> loadOnce(self::$keySuccessMessage) : null;
         include (dirname(__FILE__) . '/templates/course.php');
     }
 
-    public function echoEditCourse(\model\User $user, \model\Course $courseOrg, $allTeachers, $allStudents) {       
+    /**
+     * Creates HTML response for index.php?action=editCourse&course=__
+     * 
+     * @param $user \model\User
+     * @param $course \model\Course
+     * @param $allTeachers An array with \model\User objects, all teachers in database
+     * @param $allStudents An array with \model\User objects, all students in database
+     */
+    public function echoEditCourse(\model\User $user, \model\Course $course, $allTeachers, $allStudents) {       
         $title = "QuizApp - redigera kurs";
         $errorMessage = $this -> cookie -> cookieIsset(self::$keyErrorMessage) ? $this -> cookie -> loadOnce(self::$keyErrorMessage) : null;
-        
-        if ($this -> cookie -> cookieIsset(self::$keyCourse)) {
-            $serializedCourse = $this -> cookie -> loadOnce(self::$keyCourse);
-            $serializedCourse = utf8_decode($serializedCourse);
-            
-            $course = unserialize($serializedCourse);
-        } else {
-            $course = $courseOrg;
-        }
-
         include (dirname(__FILE__) . '/templates/editCourse.php');
     }    
 }

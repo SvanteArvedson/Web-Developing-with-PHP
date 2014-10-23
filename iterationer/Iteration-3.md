@@ -32,19 +32,19 @@ projektredovisning.
         <td>2</td>
     <tr>
     </tr>
-        <td><a href="../dokumentation/Krav/AF4-Skapa-quiz.md">AF4 - Skapa quiz</a></td>
-        <td>6</td>
-        <td></td>
+        <td>Refactoring av koden</td>
+        <td>3</td>
+        <td>1</td>
     <tr>
     </tr>
-        <td><a href="../dokumentation/Krav/AF5-Tag-bort-quiz.md">AF5 - Tag bort quiz</a></td>
-        <td>2</td>
-        <td></td>
+        <td>Färdigställande av koden (kommentarer, formatering, osv)</td>
+        <td>4</td>
+        <td>1</td>
     <tr>
     </tr>
         <td><a href="../dokumentation/Krav/AF13-Visa-statistik.md">AF13 - Visa statistik</a></td>
         <td>4</td>
-        <td></td>
+        <td>5</td>
     <tr>
     </tr>
         <td>Publicera applikationen på produktionsservern</td>
@@ -53,13 +53,13 @@ projektredovisning.
     <tr>
     </tr>
         <td>Förbered och genomför projektredovisning</td>
-        <td>3</td>
+        <td>2</td>
         <td></td>
     <tr>
     <tr>
         <td><b>Summa</b></td>
-        <td><b>32</b></td>
-        <td><b>12</b></td>
+        <td><b>30</b></td>
+        <td><b>19</b></td>
     </tr>
     <tr>
         <td colspan="2"><b>Total arbetstid före iterationen</b></td>
@@ -67,6 +67,6 @@ projektredovisning.
     </tr>
     <tr>
         <td colspan="2"><b>Total arbetstid efter iterationen</b></td>
-        <td><b>57</b></td>
+        <td><b>64</b></td>
     </tr>
 </table>

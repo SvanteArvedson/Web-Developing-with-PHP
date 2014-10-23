@@ -10,6 +10,11 @@
         <td>Skapades</td>
         <td>Svante Arvedson</td>
     </tr>
+    <tr>
+        <td>23/10-2014</td>
+        <td>Ändrat i beskrivningen för <i>Statistik över gjorda quiz</i></td>
+        <td>Svante Arvedson</td>
+    </tr>
 </table>
 
 <dl>
@@ -33,8 +38,7 @@
         samtliga användaren resultat, uträkningarna görs per quiz. 
         Alla gjorda quiz visas grupperade efter kurs.</br>
         <strong>För lärare:</strong> Uträkningar per quiz grupperade 
-        efter kurs. Läraren kan också välja att se statistik på ett 
-        enskilt quiz och ser då uträkningar gjorda per fråga.
+        efter kurs.
     </dd>
     <dt>Student</dt>
     <dd>

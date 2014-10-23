@@ -38,7 +38,7 @@ class Session {
         return $this->isKeySet(self::$keyUser);
     }
 
-    private function isKeySet($key) {
+    public function isKeySet($key) {
         return isset($_SESSION[$key]);
     }
     

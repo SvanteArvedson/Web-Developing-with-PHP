@@ -24,28 +24,7 @@
                                     <h1>Startsidan</h1>
                                 </div>
                                 <div class="small-12 columns">
-                                    <div class="text-centered small-12 large-6 columns">
-                                        <h2>Resultat</h2>
-                                        <ul class="presentation-list">
-                                            <li>
-                                                resultat
-                                            </li>
-                                            <li>
-                                                resultat
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="text-centered small-12 large-6 columns">
-                                        <h2>Kurser</h2>
-                                        <ul class="presentation-list">
-                                            <li>
-                                                kurs
-                                            </li>
-                                            <li>
-                                                kurs
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    <!--Empty-->
                                 </div>
                             </div>
                         </div>

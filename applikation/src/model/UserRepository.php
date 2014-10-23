@@ -48,6 +48,29 @@ class UserRepository extends Repository {
         }
     }
 
+    public function getUserById($userId) {
+        try {
+            $connection = $this -> getConnection();
+
+            $sql = 'SELECT * FROM ' . self::$tableName . ' WHERE ' . self::$id . ' = ?';
+            $param = array($userId);
+
+            $query = $connection -> prepare($sql);
+            $query -> execute($param);
+
+            $result = $query -> fetch();
+
+            if ($result) {
+                $uf = new UserFactory();
+                return $uf -> createUser($result[self::$id], $result[self::$username], $result[self::$password], $result[self::$salt], $result[self::$privileges]);
+            } else {
+                return null;
+            }
+        } catch (\Exception $e) {
+            throw new \Exception($e -> getMessage(), -1);
+        }
+    }
+
     public function getUsersByIds(array $userIds) {
         try {
             $connection = $this -> getConnection();

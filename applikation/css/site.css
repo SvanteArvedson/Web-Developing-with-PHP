@@ -125,6 +125,75 @@ li.quiz-option label input {
 	margin: 0;
 }
 
+h2.statistics-header {
+	display: inline-block;
+	font-size: 1.5rem;
+	margin: 0;
+	color: #333;
+}
+
+.open-close-result {
+	font-size: 0.875rem;
+	margin-top: 0.75rem;
+	margin-left: 1rem;
+}
+
+h3.statistics-header {
+	font-weight: bold;
+	font-size: 1rem;
+	margin: 0;
+	color: #333;
+}
+
+h4.statistics-header {
+	font-style: italic;
+	font-weight: bold;
+	font-size: 0.875em;
+	margin: 0;
+	color: #333;
+}
+
+label.statistics-header {
+	font-size: 1rem;
+	margin: 0;
+	text-align: right;
+	background-color: transparent;
+}
+
+.statistics-panel {
+	padding: 0.5em 1em;
+	margin-bottom: 1em;
+	background-color: rgba(242, 242, 242, 0.5);
+	-webkit-border-radius: 3px;
+  	-moz-border-radius: 3px;
+  	border-radius: 3px;
+}
+
+.statistics-quiz-panel {
+	padding: 0.5em;
+	margin-bottom: 1em;
+	background-color: #fafafa;
+	-webkit-border-radius: 3px;
+  	-moz-border-radius: 3px;
+  	border-radius: 3px;
+  	border-style: solid;
+  	border-width: 1px;
+  	border-color: #333;
+}
+
+.statistics-panel p {
+	margin: 0;
+	color: #4d4d4d;
+}
+
+#coursesResultsHeader {
+	margin-top: 2em;
+}
+
+.hidden {
+	display: none;
+}
+
 input.error, textarea.error {
 	margin: 0px 0px 1rem;
 	background-color: #fff0f0;
