@@ -62,5 +62,7 @@ class TestCourseRepository implements iTest {
         } catch(\Exception $e) {
             // test 10 passed
         }
+        
+        echo "<p>All test for CourseRepository.php done!</p>";
     }
 }

@@ -17,5 +17,3 @@ foreach ($testFiles as $testFile) {
 
 	}
 }
-
-echo "All tests done!";
