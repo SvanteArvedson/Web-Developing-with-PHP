@@ -3,8 +3,7 @@
 namespace model;
 
 /**
- * Privileges, matching allowed content in column "user.privileges" in database "quizapp"
- * @author Svante Arvedson
+ * "Enum", matching allowed content in column "user.privileges"
  */
 class Privileges {
     const ADMIN = 'Admin';

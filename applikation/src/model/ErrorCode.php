@@ -3,8 +3,7 @@
 namespace model;
 
 /**
- * Error codes for applications error handling
- * @author Svante Arvedson
+ * "Enum", error codes for applications error handling
  */
 class ErrorCode {
     const USERNAME_EMPTY = 0;

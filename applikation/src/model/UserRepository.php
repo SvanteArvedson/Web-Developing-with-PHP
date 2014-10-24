@@ -8,23 +8,60 @@ require_once dirname(__FILE__) . '/UserFactory.php';
 
 /**
  * Repository class to table "user" in database
- * @author Svante Arvedson
  */
 class UserRepository extends Repository {
 
-    // for table courseparticipation
+    /**
+     * @var $relationTable String Name of relation table user - course
+     */
     private static $relationTable = 'courseparticipation';
+    
+    /**
+     * @var $courseKey String Foreign key-field to course table
+     */
     private static $courseKey = 'course';
+    
+    /**
+     * @var $userKey String Foerign key-field to user table
+     */
     private static $userKey = 'user';
 
-    // fro table user
+    /**
+     * @var $tableName String Name of user table
+     */
     public static $tableName = 'user';
+    
+    /**
+     * @var $id String Name of id-field in user table
+     */
     public static $id = 'id';
+    
+    /**
+     * @var $username String Name of username-field in user table
+     */
     private static $username = 'username';
+    
+    /**
+     * @var $password String Name of password-field in user table
+     */
     private static $password = 'password';
+    
+    /**
+     * @var $salt String Name of salt-field in user table
+     */
     private static $salt = 'salt';
+    
+    /**
+     * @var $privileges String Name of privileges-field in user table
+     */
     private static $privileges = 'privileges';
 
+    /**
+     * Gets the row with the given username
+     * 
+     * @param $username String Username to be found
+     * @return \model\User The found user-object or NULL
+     */
     public function getUserByUsername($username) {
         try {
             $connection = $this -> getConnection();
@@ -48,6 +85,12 @@ class UserRepository extends Repository {
         }
     }
 
+    /**
+     * Gets the row with the given id
+     * 
+     * @param $userId String Id to be found
+     * @return \model\User The found user-object or NULL
+     */
     public function getUserById($userId) {
         try {
             $connection = $this -> getConnection();
@@ -71,6 +114,12 @@ class UserRepository extends Repository {
         }
     }
 
+    /**
+     * Gets the rows with the given ids
+     * 
+     * @param $userIds array Array with ids to be found
+     * @return array The found user-objects or an empty array
+     */
     public function getUsersByIds(array $userIds) {
         try {
             $connection = $this -> getConnection();
@@ -97,6 +146,12 @@ class UserRepository extends Repository {
         }
     }
 
+    /**
+     * Gets the users with privileges TEACHER related with the given course
+     * 
+     * @param $courseId int Id for the course users should be related to
+     * @return array The found user-objects or an empty array
+     */
     public function getTeachersOnCourse($courseId) {
         try {
             $connection = $this -> getConnection();
@@ -118,6 +173,12 @@ class UserRepository extends Repository {
         }
     }
     
+    /**
+     * Gets the users with privileges STUDENT related with the given course
+     * 
+     * @param $courseId int Id for the course users should be related to
+     * @return array The found user-objects or an empty array
+     */
     public function getStudentsOnCourse($courseId) {
         try {
             $connection = $this -> getConnection();
@@ -139,6 +200,11 @@ class UserRepository extends Repository {
         }
     }
 
+    /**
+     * Gets all users with privileges TEACHER
+     * 
+     * @return array The found user-objects or an empty array
+     */
     public function getAllTeachers() {
         try {
             $connection = $this -> getConnection();
@@ -156,6 +222,11 @@ class UserRepository extends Repository {
         }
     }
     
+    /**
+     * Gets all users with privileges STUDENT
+     * 
+     * @return array The found user-objects or an empty array
+     */
     public function getAllStudents() {
         try {
             $connection = $this -> getConnection();
@@ -173,6 +244,12 @@ class UserRepository extends Repository {
         }
     }
 
+    /**
+     * Sets new relations between users and a course
+     * 
+     * @param $courseId int Id to the course users should be related to
+     * @param $teachers array An array with the users that should be related to the course
+     */
     public function updateTeachersOnCourse($courseId, $teachers) {
         try {
             $connection = $this -> getConnection();
@@ -218,6 +295,12 @@ class UserRepository extends Repository {
         }
     }
     
+    /**
+     * Sets new relations between users and a course
+     * 
+     * @param $courseId int Id to the course users should be related to
+     * @param $students array An array with the users that should be related to the course
+     */
     public function updateStudentsOnCourse($courseId, $students) {
         try {
             $connection = $this -> getConnection();
@@ -262,6 +345,12 @@ class UserRepository extends Repository {
         }
     }
     
+    /**
+     * Helper function, turn result objects into user objects
+     * 
+     * @param $results array An array with result objects
+     * @return array An array with user objects
+     */
     private function makeToUserObjects($results) {
         $ret = array();
         $uf = new UserFactory();
@@ -271,8 +360,6 @@ class UserRepository extends Repository {
                 $ret[] = $uf -> createUser($result[self::$id], $result[self::$username], $result[self::$password], $result[self::$salt], $result[self::$privileges]);
             }
         }
-        
         return $ret;
     }
-
 }

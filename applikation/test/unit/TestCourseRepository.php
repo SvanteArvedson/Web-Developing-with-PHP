@@ -9,11 +9,11 @@ class TestCourseRepository implements iTest {
     
     public function run() {
         $repository = new \model\CourseRepository();
-        $courseId = 1;
-        $userId = 1;  
+        $courseId = 5;
+        $userId = 13;  
             
         // test 1
-        $course = $repository -> getCourseWithParticipationBy($courseId, $userId);
+        $course = $repository -> getCourseWithParticipationBy($userId, $courseId);
         assert(get_class($course) === 'model\Course');
 
         // test 2
@@ -46,7 +46,7 @@ class TestCourseRepository implements iTest {
         assert($course->getId() == $courseId);
         
         // test 9
-        $course = new \model\Course($courseId, "", "", array(), array());
+        $course = new \model\Course($courseId, "", "", array(), array(), array());
         try {
             $repository -> updateCourseInfo($course);
             assert(false);

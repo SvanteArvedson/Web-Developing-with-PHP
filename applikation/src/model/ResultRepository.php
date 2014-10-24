@@ -7,16 +7,51 @@ require_once dirname(__FILE__) . '/Repository.php';
 require_once dirname(__FILE__) . '/UserRepository.php';
 require_once dirname(__FILE__) . '/QuizRepository.php';
 
+/**
+ * Repository class to table "quizresult" in database
+ */
 class ResultRepository extends Repository {
 
+    /**
+     * @var $tableName String Name of the table
+     */
     private static $tableName = 'quizresult';
+    
+    /**
+     * @var $id String Name of the id field
+     */
     private static $id = 'id';
+    
+    /**
+     * @var $quizId String Foreign key-field to quiz table
+     */
     private static $quizId = 'quiz';
+    
+    /**
+     * @var $userId String Foreign key-field to user table
+     */
     private static $userId = 'user';
+    
+    /**
+     * @var $score String Name of the score-field
+     */
     private static $score = 'score';
+    
+    /**
+     * @var $createdAt String Name of the created_at-field
+     */
     private static $createdAt = 'created_at';
+    
+    /**
+     * @var $maxScore String Name of the maxscore-field
+     */
     private static $maxScore = 'maxscore';
 
+    /**
+     * Inserts a result object into the database
+     * 
+     * @param $result \model\Result
+     */
     public function insertResult(\model\Result $result) {
         try {
             $connection = $this -> getConnection();
@@ -33,6 +68,11 @@ class ResultRepository extends Repository {
         }
     }
     
+    /**
+     * Gets all rows in result-table
+     * 
+     * @return array An array with \model\Result objects
+     */
     public function getAllResults() {
         try {
             $connection = $this -> getConnection();
@@ -50,6 +90,12 @@ class ResultRepository extends Repository {
         }
     }
     
+    /**
+     * Gets all results belonging to a user
+     * 
+     * @param $userId int The id to the user the results should belong to
+     * @return array An array with \model\Result objects
+     */
     public function getResultsByUserId($userId) {
         try {
             $connection = $this -> getConnection();
@@ -67,6 +113,12 @@ class ResultRepository extends Repository {
         }
     }
     
+    /**
+     * Gets all results belonging to a number of users
+     * 
+     * @param $userIds array The ids to the users the results should belong to
+     * @return array An array with \model\Result objects
+     */
     public function getResultsByQuizIds(array $quizIds) {
         try {
             $connection = $this -> getConnection();
@@ -93,6 +145,12 @@ class ResultRepository extends Repository {
         }
     }
     
+    /**
+     * Helper function turns an array of results into an array of \model\Result objects
+     * 
+     * @param $results array
+     * @return array An array of \model\Result objects
+     */
     private function makeToResultObjects($results) {
         try {
             $ret = null;
@@ -108,6 +166,12 @@ class ResultRepository extends Repository {
         }
     }
     
+    /**
+     * Helper function turns a result row into an \model\Result object
+     * 
+     * @param $result
+     * @return array A \model\Result object
+     */
     private function makeToResultObject($result) {
         try {
             $userRepo = new UserRepository();

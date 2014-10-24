@@ -4,7 +4,7 @@ namespace controller;
 
 require_once dirname(__FILE__) . '/../controller/Handler.php';
 require_once dirname(__FILE__) . '/../view/StatisticsPage.php';
-require_once dirname(__FILE__) . '/../model/StatisticsFabric.php';
+require_once dirname(__FILE__) . '/../model/StatisticsFactory.php';
 require_once dirname(__FILE__) . '/../model/CourseRepository.php';
 
 /**
@@ -28,21 +28,21 @@ class StatisticsHandler extends Handler {
     public function presentStatistics() {
         if ($this -> session -> isUserAuthenticated()) {
             $user = $this -> session -> getValue(\model\Session::$keyUser);
-            $fabric = new \model\StatisticsFabric();
+            $factory = new \model\StatisticsFactory();
             $courseRepo = new \model\CourseRepository();
 
             // Admin, teachers and students gets different pages
             if ($user -> getPrivileges() == \model\Privileges::ADMIN) {
                 $courses = $courseRepo -> getAllCourses();
-                $statistics = $fabric -> createStatisticsOnAllCourses();
+                $statistics = $factory -> createStatisticsOnAllCourses();
                 $this -> statisticsPage -> echoStatistics($user, $statistics, $courses);
             } else if ($user -> getPrivileges() == \model\Privileges::TEACHER) {
                 $courses = $courseRepo -> getCoursesWithParticipationBy($user->getId());
-                $statistics = $fabric -> createStatisticsOnTeacher($user);
+                $statistics = $factory -> createStatisticsOnTeacher($user);
                 $this -> statisticsPage -> echoStatistics($user, $statistics, $courses);
             } else {
                 $courses = $courseRepo -> getCoursesWithParticipationBy($user->getId());
-                $statistics = $fabric -> createStatisticsOnStudent($user);
+                $statistics = $factory -> createStatisticsOnStudent($user);
                 $this -> statisticsPage -> echoStatistics($user, $statistics, $courses);
             }
 

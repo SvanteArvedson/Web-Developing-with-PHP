@@ -12,24 +12,27 @@ class TestUserRepository implements iTest {
         $repository = new \model\UserRepository();
         
         // test 1
-        $user = $repository -> getUserByUsername("Student");        
+        $username = 'Student';
+        $user = $repository -> getUserByUsername($username);        
         assert(get_class($user) === 'model\User');
 
-        $users = $repository -> getUsersByIds(array(1, 2, 3));
+        $userIds = array(14, 14, 15);
+        $users = $repository -> getUsersByIds($userIds);
         // test 2
         assert(is_array($users));
         // test 3
         assert(get_class($users[0]) === 'model\User');
 
-        $teachers = $repository -> getTeachersOnCourse(1);
+        $courseId = 5;
+        $teachers = $repository -> getTeachersOnCourse($courseId);
         // test 4
         assert(is_array($teachers));
         // test 5
         assert(get_class($teachers[0]) === 'model\User');
         // test 6
         assert($teachers[0]->getPrivileges() === \model\Privileges::TEACHER);
-        
-        $students = $repository -> getStudentsOnCourse(1);
+
+        $students = $repository -> getStudentsOnCourse($courseId);
         // test 7
         assert(is_array($students));
         // test 8

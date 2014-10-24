@@ -39,7 +39,7 @@ projektredovisning.
     </tr>
         <td>Färdigställande av koden (kommentarer, formatering, osv)</td>
         <td>4</td>
-        <td>1</td>
+        <td>4</td>
     <tr>
     </tr>
         <td><a href="../dokumentation/Krav/AF13-Visa-statistik.md">AF13 - Visa statistik</a></td>
@@ -59,7 +59,7 @@ projektredovisning.
     <tr>
         <td><b>Summa</b></td>
         <td><b>30</b></td>
-        <td><b>19</b></td>
+        <td><b>22</b></td>
     </tr>
     <tr>
         <td colspan="2"><b>Total arbetstid före iterationen</b></td>
@@ -67,6 +67,6 @@ projektredovisning.
     </tr>
     <tr>
         <td colspan="2"><b>Total arbetstid efter iterationen</b></td>
-        <td><b>64</b></td>
+        <td><b>67</b></td>
     </tr>
 </table>
