@@ -168,7 +168,7 @@ class CourseHandler extends Handler {
                 $this -> navigation -> redirectToShowCourses();
             }
         } else {
-            $this -> navigation -> redirectFrontPage();
+            $this -> navigation -> redirectToFrontPage();
         }
     }
 }

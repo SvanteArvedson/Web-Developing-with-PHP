@@ -222,7 +222,7 @@ class CourseRepository extends Repository {
     
                 return new Course($result[self::$id], $result[self::$name], $result[self::$description], $quiz, $teachers, $students);
             } else {
-                return null;;
+                return null;
             }
         } catch (\Exception $e) {
             throw new \Exception($e -> getMessage(), -1);

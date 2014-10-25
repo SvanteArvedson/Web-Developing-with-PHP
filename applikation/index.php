@@ -2,12 +2,7 @@
 
 require_once 'src/controller/Program.php';
 
-/*
-foreach ($_SERVER as $key => $value) {
-	echo "<p>$key => $value</p>";
-}
-die();
-*/
+set_time_limit(0);
 
 $program = new \controller\Program();
 $program->run();

@@ -1,8 +1,7 @@
 # Iteration 3
-Under Iteration 3 skall funktioner för att svara på, tillverka. redigera och 
-ta bort quiz implementeras. Detta är den sista iterationen för den här 
-kursen så i iterationen ingår det också att förbereda och genomföra en 
-projektredovisning.
+Under Iteration 3 skall funktioner för att svara på quiz implementeras. 
+Detta är den sista iterationen för den här kursen så i iterationen 
+ingår det också att förbereda och genomföra en projektredovisning.
 
 ## Planering
 <table>
@@ -33,8 +32,13 @@ projektredovisning.
     <tr>
     </tr>
         <td>Refactoring av koden</td>
-        <td>3</td>
+        <td>2</td>
         <td>1</td>
+    <tr>
+    </tr>
+        <td>Skriva enhetstester för nya modelklasser</td>
+        <td>2</td>
+        <td>2</td>
     <tr>
     </tr>
         <td>Färdigställande av koden (kommentarer, formatering, osv)</td>
@@ -49,17 +53,12 @@ projektredovisning.
     </tr>
         <td>Publicera applikationen på produktionsservern</td>
         <td>1</td>
-        <td></td>
-    <tr>
-    </tr>
-        <td>Förbered och genomför projektredovisning</td>
-        <td>2</td>
-        <td></td>
+        <td>4</td>
     <tr>
     <tr>
         <td><b>Summa</b></td>
-        <td><b>30</b></td>
-        <td><b>22</b></td>
+        <td><b>28</b></td>
+        <td><b>28</b></td>
     </tr>
     <tr>
         <td colspan="2"><b>Total arbetstid före iterationen</b></td>
@@ -67,6 +66,6 @@ projektredovisning.
     </tr>
     <tr>
         <td colspan="2"><b>Total arbetstid efter iterationen</b></td>
-        <td><b>67</b></td>
+        <td><b>73</b></td>
     </tr>
 </table>

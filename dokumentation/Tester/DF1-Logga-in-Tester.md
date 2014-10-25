@@ -46,7 +46,7 @@
 	<tr>
 		<td>DF1.7</td>
 		<td>Lyckad inloggning som lärare</td>
-		<td>användarnamn: "Larare", lösenord: "Lösenord"</td>
+		<td>användarnamn: "Lärare", lösenord: "Lösenord"</td>
 		<td>Lärarvyn visas</td>
 	</tr>
 	<tr>
