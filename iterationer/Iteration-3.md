@@ -43,7 +43,7 @@ ingår det också att förbereda och genomföra en projektredovisning.
     </tr>
         <td>Färdigställande av koden (kommentarer, formatering, osv)</td>
         <td>4</td>
-        <td>4</td>
+        <td>6</td>
     <tr>
     </tr>
         <td><a href="../dokumentation/Krav/AF13-Visa-statistik.md">AF13 - Visa statistik</a></td>
@@ -58,7 +58,7 @@ ingår det också att förbereda och genomföra en projektredovisning.
     <tr>
         <td><b>Summa</b></td>
         <td><b>28</b></td>
-        <td><b>28</b></td>
+        <td><b>30</b></td>
     </tr>
     <tr>
         <td colspan="2"><b>Total arbetstid före iterationen</b></td>
@@ -66,6 +66,6 @@ ingår det också att förbereda och genomföra en projektredovisning.
     </tr>
     <tr>
         <td colspan="2"><b>Total arbetstid efter iterationen</b></td>
-        <td><b>73</b></td>
+        <td><b>75</b></td>
     </tr>
 </table>
