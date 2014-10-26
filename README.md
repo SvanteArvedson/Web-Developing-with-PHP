@@ -1,6 +1,12 @@
 Project-Webbutveckling-med-PHP
 ==============================
 
+Inloggning för testning:
+
++ Admin/Lösenord
++ Lärare/Lösenord
++ Student/Lösenord
+
 Installationsanvisningar:
 
 + Skapa en databas med filen <i>sql-create.sql</i> i mappen <i>applikation/sql</i>
